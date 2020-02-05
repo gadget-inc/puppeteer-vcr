@@ -2,23 +2,27 @@ import fs from "fs";
 import path from "path";
 import mkdirp from "mkdirp";
 import sanitize from "sanitize-filename";
+import Timeout from "await-timeout";
 import { MatchKey } from "./matcher";
 import { Response, Request } from "puppeteer";
-import { assert, isRedirectResponse, responseHasContent } from "./utils";
+import { assert, isRedirectResponse, AbstractSetCookie, abstractCookies } from "./utils";
+import { omit } from "lodash";
 
-export type RecordedOutcome =
-  | { type: "abort"; key: MatchKey; errorText: string }
-  | {
-      type: "response";
-      key: MatchKey;
-      response: {
-        status: number;
-        body: string | null;
-        headers: {
-          [key: string]: string;
-        };
-      };
+export type RecordedAbortOutcome = { type: "abort"; key: MatchKey; errorText: string };
+export type RecordedResponseOutcome = {
+  type: "response";
+  key: MatchKey;
+  setCookies: AbstractSetCookie[];
+  response: {
+    status: number;
+    body: string | null;
+    headers: {
+      [key: string]: string;
     };
+  };
+};
+
+export type RecordedOutcome = RecordedAbortOutcome | RecordedResponseOutcome;
 
 export type RecordingResult = { type: "success"; response: Response } | { type: "failure"; request: Request };
 
@@ -47,18 +51,21 @@ export class Cassette {
     if (result.type == "success") {
       let body: string | null = null;
 
-      // Avoid puppeteer errors trying to access the response.text() of a redirect response. Somewhere deep in the devtools protocol errors when that happens.
-      if (!isRedirectResponse(result.response) && responseHasContent(result.response)) {
-        body = await result.response.text();
+      // Avoid puppeteer errors trying to access the response.text() of responses that don't have it. Accessing .text() for redirect requests or request with 0 length responses throws deep inside Puppeteer.
+      if (!isRedirectResponse(result.response)) {
+        body = await Timeout.wrap(result.response.text(), 1000, `puppeteer-vcr internal error: timed out retrieving request response`);
+      } else {
+        // console.debug("skipping body content access", key);
       }
 
       return {
         type: "response",
         key,
+        setCookies: abstractCookies(result.response.headers()["set-cookie"]),
         response: {
           status: result.response.status(),
           body: body,
-          headers: result.response.headers()
+          headers: this.filterHeadersForSave(result.response.headers())
         }
       };
     } else {
@@ -86,5 +93,17 @@ export class Cassette {
       this.root,
       sanitize(`${key.method}-${key.url.protocol}${key.url.hostname}${key.url.pathname}-${key.keyCount}-${key.hash}.json`)
     );
+  }
+
+  private filterHeadersForSave(headers: Record<string, string>) {
+    return omit(headers, [
+      "status", // status is broken out as a top level key on the response
+      "date", // probably not gonna be the same date that we replay the response
+      "set-cookie", // cookies managed by a different flow that updates the max age and expiry and facilitates setting multiple
+      "content-encoding", // gzipped content is not served gzipped by puppeteer-vcr, everything is unencoded
+      "content-length", // puppeteer recomputes content length for us, let's let it do that and not have to worry about managing this if the body contents change somehow
+      "nel", // don't report network issues from test environments
+      "report-to"
+    ]);
   }
 }
