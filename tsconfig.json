@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "incremental": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "dist"]
+}
