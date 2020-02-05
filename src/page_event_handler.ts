@@ -1,4 +1,3 @@
-import waitUntil from "async-wait-until";
 import { Page, Request, RespondOptions } from "puppeteer";
 import { VCR } from "./vcr";
 import { Cassette, RecordedOutcome, RecordingResult } from "./cassette";
@@ -13,12 +12,6 @@ export class PageEventHandler {
   matcher: Matcher;
   requestEvents: RequestEventManager;
   mode: "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough";
-
-  // Puppeteer gives events about individual requests at the page level, so we track which requests
-  // we're watching for events in a map on the class. Requests get added when they start if they should
-  // be recorded, and removed when they complete (`requestfinished` event) or fail (`requestfailed`)
-  incompleteRequestsToRecord = new Map<Request, MatchKey>();
-  completeRequestsBeingRecorded = new Map<Request, MatchKey>();
 
   constructor(readonly vcr: VCR, readonly page: Page, readonly cassette: Cassette) {
     this.matcher = new Matcher(this.vcr);
@@ -77,12 +70,6 @@ export class PageEventHandler {
             request.abort("failed");
           } else {
             if (this.recordUnmatchedRequests) {
-              // Navigation requests of the main frame will cause all the execution contexts to get torn down. If we're still waiting to record requests, then they might not return by the time the execution context goes away. This would A) prevent us from recording them, and B) sometimes throw errors within Puppeteer when we go to access something about the request at some point and the object is gone inside Chrome.
-              if (request.isNavigationRequest() && request.frame() == this.page.mainFrame()) {
-                console.debug("navigation request", request.url());
-                await this.waitUntilPendingRequestsAreCompleted();
-              }
-
               this.watchAndRecordRequest(key, request);
             }
 
@@ -96,15 +83,11 @@ export class PageEventHandler {
   };
 
   async watchAndRecordRequest(key: MatchKey, request: Request) {
-    // Track that we're watching this request so we can wait for it to finish before navigating away and losing the ability to retrieve it's body
-    this.incompleteRequestsToRecord.set(request, key);
-
     const events = this.requestEvents.events(request);
 
     events.on("failed_or_finished", () =>
       reportErrors(
         async () => {
-          this.incompleteRequestsToRecord.delete(request);
           await this.saveRequest(key, request);
         },
         "requestfailed/finished",
@@ -114,9 +97,6 @@ export class PageEventHandler {
   }
 
   async saveRequest(key: MatchKey, request: Request) {
-    // Track that we're saving this request so we can wait for the save to finish before navigating away and losing the ability to retrieve it's body
-    this.completeRequestsBeingRecorded.set(request, key);
-
     let data: RecordingResult;
 
     if (request.failure()) {
@@ -128,16 +108,14 @@ export class PageEventHandler {
     try {
       await this.cassette.save(key, data);
     } catch (e) {
-      if (e.message.match(/timed out retrieving request response/)) {
-        // Don't try to save requests that are no longer available. During navigation, the currently loaded page might fire off requests that don't complete by the time the navigation is complete. When the navigation completes, the ExecutionContext will roll over, and Chrome will dispose of the outstanding requests' bodies. If we try to access those bodies, we either time out or get Resource Not Found errors from the devtools protocol. In this instance, we can ignore the request and not save it, as we know it wasn't necessary for the first page to render, and a real browser would discard it too.
-        // console.debug("passing on request that timed out being retrieved from puppeteer", smallRequestOutput(request));
+      if (e.message.match(/timed out retrieving request response/) || e.message.match(/No resource with given identifier found/)) {
+        // Don't try to save requests that are no longer available. During navigation, the currently loaded page might fire off requests that don't complete by the time the navigation is complete. When the navigation completes, the ExecutionContext will roll over, and Chrome will dispose of the outstanding requests' bodies. If we try to access those bodies, we either time out or get Resource Not Found errors from the devtools protocol. In this instance, we can ignore the request and not save it, as we know it wasn't necessary for the first page to render, and a real browser would discard it too. Whatever the unit under test is was able to make progress and trigger a navigation, so we just discard these two error messages if they result from saving a response.
+        // console.debug("passing on request that timed out / wasn't found being retrieved from puppeteer", smallRequestOutput(request));
       } else {
         console.debug("request that failed to save: ", smallRequestOutput(request));
         throw e;
       }
     }
-
-    this.completeRequestsBeingRecorded.delete(request);
   }
 
   async replayRequest(request: Request, outcome: RecordedOutcome) {
@@ -160,46 +138,6 @@ export class PageEventHandler {
     } else {
       // console.debug("Replay aborting request", smallRequestOutput(request));
       request.abort("failed");
-    }
-  }
-
-  async waitUntilPendingRequestsAreCompleted() {
-    // Wait for all the other recording requests to finish before continuing the mainframe navigation request
-    // Avoids Protocol error (Network.getResponseBody): No resource with given identifier found
-    // See https://github.com/puppeteer/puppeteer/issues/2258 for some more information
-    try {
-      await waitUntil(
-        () => {
-          console.debug(`checking navigation pause ${new Date()}`, {
-            incompleteRequestCount: this.incompleteRequestsToRecord.size,
-            completedMidSaveRequestCount: this.completeRequestsBeingRecorded.size
-          });
-
-          if (this.incompleteRequestsToRecord.size > 0) {
-            console.debug(
-              Array.from(this.incompleteRequestsToRecord.values()).map(key => ({
-                keyCount: key.keyCount,
-                url: key.url
-              }))
-            );
-          }
-
-          if (this.completeRequestsBeingRecorded.size > 0) {
-            Array.from(this.incompleteRequestsToRecord.values()).map(key => ({
-              keyCount: key.keyCount,
-              url: key.url
-            })).length;
-          }
-
-          return this.incompleteRequestsToRecord.size == 0 && this.completeRequestsBeingRecorded.size == 0;
-        },
-        10000,
-        1000
-      );
-    } catch (e) {
-      console.debug("Navigation timeout expired, suppressing and resetting");
-      this.incompleteRequestsToRecord.clear();
-      this.completeRequestsBeingRecorded.clear();
     }
   }
 

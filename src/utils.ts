@@ -26,6 +26,7 @@ export const smallRequestOutput = (request: Request) => {
   return {
     url: request.url(),
     referrer: request.headers()["referer"],
+    resourceType: request.resourceType(),
     isNavigationRequest: request.isNavigationRequest(),
     mainFrame: frame && frame.parentFrame() === null,
     errorText: request.failure()?.errorText,
