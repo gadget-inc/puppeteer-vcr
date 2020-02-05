@@ -1,1 +1,1 @@
-declare module 'mkdirp';
+declare module "mkdirp";

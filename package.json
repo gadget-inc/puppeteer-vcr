@@ -2,22 +2,28 @@
   "name": "puppeteer-vcr",
   "version": "0.1.0",
   "description": "Record requests and replay them for stable puppeteer testing",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "repository": "https://github.com/superpro-inc/puppeteer-vcr",
   "author": "Harry Brundage",
   "license": "MIT",
   "private": false,
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "lint": "tsc --noEmit && prettier --check \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx src test",
+    "lintfix": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx --fix src test"
   },
   "dependencies": {
+    "@types/await-timeout": "^0.3.1",
+    "async-wait-until": "^1.2.4",
+    "await-timeout": "^1.1.1",
     "farmhash": "^3.0.0",
     "fast-json-stable-stringify": "^2.1.0",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
-    "puppeteer": "2.0.0",
-    "sanitize-filename": "^1.6.3"
+    "puppeteer": "2.1.0",
+    "sanitize-filename": "^1.6.3",
+    "typed-emitter": "^0.2.0"
   },
   "devDependencies": {
     "@fixings/eslint-config": "^2.0.0",
@@ -28,6 +34,7 @@
     "@types/puppeteer": "^2.0.0",
     "eslint": "^6.8.0",
     "prettier": "^1.19.1",
+    "rimraf": "^3.0.1",
     "typescript": "^3.7.5"
   }
 }

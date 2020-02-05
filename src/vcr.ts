@@ -7,12 +7,7 @@ import { PageEventHandler } from "./page_event_handler";
 
 export interface VCROptions {
   cassetteRoot: string;
-  mode:
-    | "replay-only"
-    | "record-only"
-    | "record-additive"
-    | "passthrough"
-    | "auto";
+  mode: "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough" | "auto";
 }
 
 export class UnmatchedRequestError extends Error {}
@@ -32,9 +27,6 @@ export class VCR {
   }
 
   cassettePath(namespace: string) {
-    return path.join(
-      this.options.cassetteRoot,
-      sanitize(namespace.toLowerCase().replace(/\s/g, "_"))
-    );
+    return path.join(this.options.cassetteRoot, sanitize(namespace.toLowerCase().replace(/\s/g, "_")));
   }
 }
