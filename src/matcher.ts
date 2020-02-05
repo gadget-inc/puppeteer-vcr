@@ -3,11 +3,13 @@ import { Request } from "puppeteer";
 import farmhash from "farmhash";
 import stableJSONStringify from "fast-json-stable-stringify";
 import { isUndefined } from "lodash";
+import { VCR } from "./vcr";
 
 export interface MatchKey {
   keyCount: number;
+  keyHash: string;
   method: string;
-  body: string | undefined;
+  body: string | null;
   isNavigationRequest: boolean;
   resourceType: string;
   url: {
@@ -17,9 +19,8 @@ export interface MatchKey {
     hostname: string;
     pathname: string;
     port: string;
-    query: string;
+    query: { [key: string]: any };
   };
-  hash: "";
   extra: {
     [key: string]: any;
   };
@@ -27,6 +28,8 @@ export interface MatchKey {
 
 export class Matcher {
   keyCounts: { [key: string]: number } = {};
+
+  constructor(readonly vcr: VCR) {}
 
   matchKey(request: Request): MatchKey {
     const url = new URL(request.url());
@@ -47,11 +50,11 @@ export class Matcher {
       },
       // keep the managed values stable before hashing so the hash for two instances of the same request are the same
       keyCount: 0,
-      hash: "",
+      keyHash: "",
       extra: {}
     });
 
-    key.hash = farmhash.hash32(stableJSONStringify(key));
+    key.keyHash = String(farmhash.hash32(stableJSONStringify(key)));
     key.keyCount = this.getKeyCount(key);
 
     return key;
@@ -59,7 +62,7 @@ export class Matcher {
 
   // keys that occur more than once need to be disambiguated somehow. Count their occurrences in order.
   private getKeyCount(key: MatchKey) {
-    const hash = key.hash;
+    const hash = key.keyHash;
     if (isUndefined(this.keyCounts[hash])) {
       this.keyCounts[hash] = 0;
     }
@@ -68,8 +71,7 @@ export class Matcher {
   }
 
   private customizeKey(key: MatchKey) {
-    // todo implement customization
-    return key;
+    return this.vcr.options.customizeMatchKey(key);
   }
 
   // Parse and sort json if sent json
@@ -84,14 +86,15 @@ export class Matcher {
           data = "<INVALID JSON>";
         }
       }
+      return data;
+    } else {
+      return null;
     }
-
-    return data;
   }
 
   private normalizeSearch(url: URL) {
     const params = url.searchParams;
     params.sort();
-    return params.toString();
+    return Object.fromEntries(params.entries());
   }
 }

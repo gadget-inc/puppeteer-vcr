@@ -4,9 +4,13 @@ import { Page } from "puppeteer";
 import sanitize from "sanitize-filename";
 import { Cassette } from "./cassette";
 import { PageEventHandler } from "./page_event_handler";
+import { MatchKey } from "./matcher";
 
 export interface VCROptions {
   cassetteRoot: string;
+  passthroughDomains: string[];
+  blacklistDomains: string[];
+  customizeMatchKey: (key: MatchKey) => MatchKey;
   mode: "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough" | "auto";
 }
 
@@ -15,8 +19,14 @@ export class UnmatchedRequestError extends Error {}
 export class VCR {
   options: VCROptions;
 
-  constructor(options: VCROptions) {
-    this.options = defaults(options, { recordMode: "auto" });
+  constructor(options: Partial<VCROptions>) {
+    this.options = defaults(options, {
+      mode: "auto",
+      cassetteRoot: "./__recordings__",
+      passthroughDomains: [],
+      blacklistDomains: [],
+      customizeMatchKey: (key: MatchKey) => key
+    });
   }
 
   async apply(namespace: string, page: Page) {

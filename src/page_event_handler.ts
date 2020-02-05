@@ -21,7 +21,7 @@ export class PageEventHandler {
   completeRequestsBeingRecorded = new Map<Request, MatchKey>();
 
   constructor(readonly vcr: VCR, readonly page: Page, readonly cassette: Cassette) {
-    this.matcher = new Matcher();
+    this.matcher = new Matcher(this.vcr);
     this.requestEvents = new RequestEventManager(this.page);
 
     if (this.vcr.options.mode == "auto") {
@@ -48,17 +48,14 @@ export class PageEventHandler {
   handleRequest = async (request: Request) => {
     await reportErrors(
       async () => {
-        // Don't record or replay requests for frames other than the main one. There's no hard limitation here, we just don't in the interest of not making things super complicated to do so.
-        // In my observations so far, this is almost entirely ad tracking.
-        if (request.frame() != this.page.mainFrame()) {
-          return request.abort("timedout");
-        }
-
         const key = this.matcher.matchKey(request);
 
-        // Don't record data urls. They have the response in them and don't fire the normal events we need to record them.
-        if (key.url.protocol.startsWith("data") || key.url.protocol.startsWith("blob")) {
+        if (this.shouldIgnoreRequest(request, key)) {
           return request.continue();
+        }
+
+        if (this.shouldFastFailRequest(request, key)) {
+          return request.abort("failed");
         }
 
         const recordedOutcome = await this.cassette.match(key);
@@ -75,6 +72,8 @@ export class PageEventHandler {
           }
         } else {
           if (this.raiseOnUnmatchedRequests) {
+            console.debug("Aborting unmatched request", smallRequestOutput(request));
+            this.logClosestMatch(request, key);
             request.abort("failed");
           } else {
             if (this.recordUnmatchedRequests) {
@@ -143,7 +142,7 @@ export class PageEventHandler {
 
   async replayRequest(request: Request, outcome: RecordedOutcome) {
     if (outcome.type == "response") {
-      console.debug("Replaying request", smallRequestOutput(request));
+      // console.debug("Replaying request", smallRequestOutput(request));
       const respondOptions: RespondOptions = {
         status: outcome.response.status,
         headers: outcome.response.headers
@@ -157,10 +156,10 @@ export class PageEventHandler {
         respondOptions.body = outcome.response.body;
       }
 
-      await request.respond(respondOptions);
+      request.respond(respondOptions);
     } else {
-      console.debug("Replay aborting request", smallRequestOutput(request));
-      await request.abort("failed");
+      // console.debug("Replay aborting request", smallRequestOutput(request));
+      request.abort("failed");
     }
   }
 
@@ -202,5 +201,33 @@ export class PageEventHandler {
       this.incompleteRequestsToRecord.clear();
       this.completeRequestsBeingRecorded.clear();
     }
+  }
+
+  async logClosestMatch(request: Request, key: MatchKey) {
+    const closestMatch = await this.cassette.closestMatch(key);
+    if (closestMatch) {
+      console.debug("Found close match for unmatched request:");
+      console.debug(closestMatch.diff);
+      console.debug(key);
+    }
+  }
+
+  shouldIgnoreRequest(request: Request, key: MatchKey) {
+    // Don't record data urls. They have the response in them and don't fire the normal events we need to record them.
+    if (key.url.protocol.startsWith("data") || key.url.protocol.startsWith("blob")) {
+      return true;
+    }
+
+    return this.vcr.options.passthroughDomains.includes(key.url.hostname);
+  }
+
+  shouldFastFailRequest(request: Request, key: MatchKey) {
+    // Don't record or replay requests for frames other than the main one. There's no hard limitation here, we just don't in the interest of not making things super complicated to do so.
+    // In my observations so far, this is almost entirely ad tracking.
+    if (request.frame() != this.page.mainFrame()) {
+      return true;
+    }
+
+    return this.vcr.options.blacklistDomains.includes(key.url.hostname);
   }
 }
