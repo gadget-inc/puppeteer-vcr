@@ -1,0 +1,97 @@
+{
+  "outcomes": {
+    "1340930141": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "stylesheet",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "fonts.googleapis.com",
+            "port": "",
+            "pathname": "/css",
+            "query": {
+              "display": "swap",
+              "family": "Crete Round:400"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "1340930141",
+          "extra": {}
+        },
+        "setCookies": [],
+        "response": {
+          "status": 200,
+          "body": "/* latin-ext */\n@font-face {\n  font-family: 'Crete Round';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: local('Crete Round'), local('CreteRound-Regular'), url(https://fonts.gstatic.com/s/creteround/v8/55xoey1sJNPjPiv1ZZZrxK110b3iKWxMpKc.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Crete Round';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: local('Crete Round'), local('CreteRound-Regular'), url(https://fonts.gstatic.com/s/creteround/v8/55xoey1sJNPjPiv1ZZZrxK170b3iKWxM.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n",
+          "headers": {
+            "strict-transport-security": "max-age=31536000",
+            "last-modified": "Thu, 06 Feb 2020 14:02:46 GMT",
+            "server": "ESF",
+            "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "text/css; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+            "timing-allow-origin": "*",
+            "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000",
+            "x-xss-protection": "0",
+            "expires": "Thu, 06 Feb 2020 14:02:46 GMT"
+          }
+        }
+      }
+    ],
+    "2998326670": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "stylesheet",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "fonts.googleapis.com",
+            "port": "",
+            "pathname": "/css",
+            "query": {
+              "display": "swap",
+              "family": "Mukta Mahee:400,600,700"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2998326670",
+          "extra": {}
+        },
+        "setCookies": [],
+        "response": {
+          "status": 200,
+          "body": "/* gurmukhi */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: local('Mukta Mahee Regular'), local('MuktaMahee-Regular'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXQ3IOIi0hcP8iVU67hA9vpUT8tDntiXTI.woff2) format('woff2');\n  unicode-range: U+0964-0965, U+0A01-0A75, U+200C-200D, U+20B9, U+25CC, U+262C, U+A830-A839;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: local('Mukta Mahee Regular'), local('MuktaMahee-Regular'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXQ3IOIi0hcP8iVU67hA9vEUT8tDntiXTI.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 400;\n  font-display: swap;\n  src: local('Mukta Mahee Regular'), local('MuktaMahee-Regular'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXQ3IOIi0hcP8iVU67hA9vKUT8tDnti.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* gurmukhi */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: local('Mukta Mahee SemiBold'), local('MuktaMahee-SemiBold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9MVdSojLHZIZzsXsoc.woff2) format('woff2');\n  unicode-range: U+0964-0965, U+0A01-0A75, U+200C-200D, U+20B9, U+25CC, U+262C, U+A830-A839;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: local('Mukta Mahee SemiBold'), local('MuktaMahee-SemiBold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9MVdSoOLHZIZzsXsoc.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 600;\n  font-display: swap;\n  src: local('Mukta Mahee SemiBold'), local('MuktaMahee-SemiBold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9MVdSoALHZIZzsX.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n/* gurmukhi */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 700;\n  font-display: swap;\n  src: local('Mukta Mahee Bold'), local('MuktaMahee-Bold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9NxdCojLHZIZzsXsoc.woff2) format('woff2');\n  unicode-range: U+0964-0965, U+0A01-0A75, U+200C-200D, U+20B9, U+25CC, U+262C, U+A830-A839;\n}\n/* latin-ext */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 700;\n  font-display: swap;\n  src: local('Mukta Mahee Bold'), local('MuktaMahee-Bold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9NxdCoOLHZIZzsXsoc.woff2) format('woff2');\n  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;\n}\n/* latin */\n@font-face {\n  font-family: 'Mukta Mahee';\n  font-style: normal;\n  font-weight: 700;\n  font-display: swap;\n  src: local('Mukta Mahee Bold'), local('MuktaMahee-Bold'), url(https://fonts.gstatic.com/s/muktamahee/v5/XRXN3IOIi0hcP8iVU67hA9NxdCoALHZIZzsX.woff2) format('woff2');\n  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;\n}\n",
+          "headers": {
+            "strict-transport-security": "max-age=31536000",
+            "last-modified": "Wed, 05 Feb 2020 23:17:24 GMT",
+            "server": "ESF",
+            "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+            "x-frame-options": "SAMEORIGIN",
+            "content-type": "text/css; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+            "timing-allow-origin": "*",
+            "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000",
+            "x-xss-protection": "0",
+            "expires": "Wed, 05 Feb 2020 23:17:24 GMT"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

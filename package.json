@@ -38,6 +38,7 @@
     "@types/node": "^13.7.0",
     "@types/puppeteer": "^2.0.0",
     "@types/set-cookie-parser": "^0.0.6",
+    "@types/tmp": "^0.1.0",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",

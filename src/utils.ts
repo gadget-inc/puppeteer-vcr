@@ -9,6 +9,10 @@ export function assert<T>(value: T | undefined | null): T {
   return value;
 }
 
+export const sleep = (ms: number) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+
 // toString() for Puppeteer's Response that doesn't output a huge amount of internal stuff
 export const smallResponseOutput = (response: Response) => {
   return {
@@ -43,7 +47,7 @@ export const reportErrors = async <T>(fn: () => Promise<T>, ...args: any[]): Pro
   try {
     return await fn();
   } catch (e) {
-    console.error("puppeteer-vcr request interception error occurred");
+    console.error("puppeteer-vcr internal error occurred");
     console.error(...args);
     console.error(e);
     throw e;

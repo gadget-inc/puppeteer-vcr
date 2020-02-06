@@ -34,7 +34,11 @@ export class Matcher {
   matchKey(request: Request): MatchKey {
     const url = new URL(request.url());
 
-    const key = this.customizeKey({
+    if (request.url() == "https://homesick.com/cart/update") {
+      debugger;
+    }
+
+    let key: MatchKey = {
       method: request.method(),
       body: this.normalizeBody(request),
       isNavigationRequest: request.isNavigationRequest(),
@@ -52,7 +56,10 @@ export class Matcher {
       keyCount: 0,
       keyHash: "",
       extra: {}
-    });
+    };
+
+    // Apply userland customizations before hashing and counting
+    key = this.customizeKey(key);
 
     key.keyHash = String(farmhash.hash32(stableJSONStringify(key)));
     key.keyCount = this.getKeyCount(key);

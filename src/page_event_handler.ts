@@ -35,11 +35,15 @@ export class PageEventHandler {
 
   async register() {
     await this.page.setRequestInterception(true);
+    this.requestEvents.register();
     this.page.on("request", this.handleRequest);
+    this.page.on("close", () => {
+      this.page.off("request", this.handleRequest);
+    });
   }
 
   handleRequest = async (request: Request) => {
-    await reportErrors(
+    this.vcr.task(
       async () => {
         const key = this.matcher.matchKey(request);
 
@@ -56,7 +60,7 @@ export class PageEventHandler {
         if (recordedOutcome) {
           if (this.replayMatchedRequests) {
             process.nextTick(async () => {
-              await reportErrors(async () => {
+              await this.vcr.task(async () => {
                 await this.replayRequest(request, recordedOutcome);
               });
             });
@@ -65,8 +69,7 @@ export class PageEventHandler {
           }
         } else {
           if (this.raiseOnUnmatchedRequests) {
-            console.debug("Aborting unmatched request", smallRequestOutput(request));
-            this.logClosestMatch(request, key);
+            this.logAbort(request, key);
             request.abort("failed");
           } else {
             if (this.recordUnmatchedRequests) {
@@ -86,7 +89,7 @@ export class PageEventHandler {
     const events = this.requestEvents.events(request);
 
     events.on("failed_or_finished", () =>
-      reportErrors(
+      this.vcr.task(
         async () => {
           await this.saveRequest(key, request);
         },
@@ -120,7 +123,6 @@ export class PageEventHandler {
 
   async replayRequest(request: Request, outcome: RecordedOutcome) {
     if (outcome.type == "response") {
-      // console.debug("Replaying request", smallRequestOutput(request));
       const respondOptions: RespondOptions = {
         status: outcome.response.status,
         headers: outcome.response.headers
@@ -136,17 +138,17 @@ export class PageEventHandler {
 
       request.respond(respondOptions);
     } else {
-      // console.debug("Replay aborting request", smallRequestOutput(request));
       request.abort("failed");
     }
   }
 
-  async logClosestMatch(request: Request, key: MatchKey) {
+  async logAbort(request: Request, key: MatchKey) {
     const closestMatch = await this.cassette.closestMatch(key);
     if (closestMatch) {
-      console.debug("Found close match for unmatched request:");
-      console.debug(closestMatch.diff);
-      console.debug(key);
+      console.debug("Aborting unmatched request", smallRequestOutput(request), "\n Closest Match", closestMatch.diff, "\n Raw keys", {
+        stored: closestMatch.outcome.key,
+        searchingFor: key
+      });
     }
   }
 

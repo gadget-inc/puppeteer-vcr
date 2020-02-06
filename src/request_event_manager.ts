@@ -12,9 +12,15 @@ export type RequestEmitter = TypedEmitter<{
 export class RequestEventManager {
   watchedRequests = new WeakMap<Request, RequestEmitter>();
 
-  constructor(readonly page: Page) {
+  constructor(readonly page: Page) {}
+
+  register() {
     this.page.on("requestfinished", this.handleRequestFinished);
     this.page.on("requestfailed", this.handleRequestFailed);
+    this.page.on("close", () => {
+      this.page.off("requestfinished", this.handleRequestFinished);
+      this.page.off("requestfailed", this.handleRequestFailed);
+    });
   }
 
   events(request: Request) {

@@ -96,7 +96,7 @@ export class Cassette {
       data.outcomes[key.keyHash][key.keyCount] = await this.blobFromResult(key, result);
 
       await mkdirp(this.root);
-      await fs.promises.writeFile(bucketPath, JSON.stringify(data));
+      await fs.promises.writeFile(bucketPath, JSON.stringify(data, null, 2));
     });
   }
 

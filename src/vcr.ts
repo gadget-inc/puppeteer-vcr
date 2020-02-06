@@ -1,10 +1,11 @@
-import { defaults } from "lodash";
+import { defaults, remove } from "lodash";
 import path from "path";
 import { Page } from "puppeteer";
 import sanitize from "sanitize-filename";
 import { Cassette } from "./cassette";
 import { PageEventHandler } from "./page_event_handler";
 import { MatchKey } from "./matcher";
+import { reportErrors } from "./utils";
 
 export interface VCROptions {
   cassetteRoot: string;
@@ -18,6 +19,7 @@ export class UnmatchedRequestError extends Error {}
 
 export class VCR {
   options: VCROptions;
+  tasks: Promise<any>[] = [];
 
   constructor(options: Partial<VCROptions>) {
     this.options = defaults(options, {
@@ -34,6 +36,18 @@ export class VCR {
     const handler = new PageEventHandler(this, page, cassette);
     await handler.register();
     return handler;
+  }
+
+  // puppeteer-vcr is built using a lot of event handlers that fire at times the library doesn't really control, as those events are coming from the browser. We wrap any async event handlers (that say read or write to disk) in this task helper so that we can await them all before moving on, during test teardown or something like that.
+  async task<T>(fn: () => Promise<T>, ...taskContext: any[]): Promise<T> {
+    const task = reportErrors(fn, ...taskContext);
+    this.tasks.push(task);
+    task.finally(() => remove(this.tasks, task)); // eslint-disable-line lodash/prefer-immutable-method
+    return task;
+  }
+
+  async drainTasks() {
+    await Promise.all(this.tasks);
   }
 
   cassettePath(namespace: string) {
