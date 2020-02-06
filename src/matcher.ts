@@ -34,10 +34,6 @@ export class Matcher {
   matchKey(request: Request): MatchKey {
     const url = new URL(request.url());
 
-    if (request.url() == "https://homesick.com/cart/update") {
-      debugger;
-    }
-
     let key: MatchKey = {
       method: request.method(),
       body: this.normalizeBody(request),
@@ -62,6 +58,8 @@ export class Matcher {
     key = this.customizeKey(key);
 
     key.keyHash = String(farmhash.hash32(stableJSONStringify(key)));
+
+    // Apply counting after hashing so the hash is a pure function of the request contents, not when it happened.
     key.keyCount = this.getKeyCount(key);
 
     return key;

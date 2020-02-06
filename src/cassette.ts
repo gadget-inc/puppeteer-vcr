@@ -2,22 +2,31 @@ import fs from "fs";
 import path from "path";
 import mkdirp from "mkdirp";
 import sanitize from "sanitize-filename";
-import Timeout from "await-timeout";
 import { Mutex } from "async-mutex";
+import { find } from "lodash";
 import { detailedDiff } from "deep-object-diff";
 import { MatchKey } from "./matcher";
 import { Response, Request } from "puppeteer";
-import { assert, isRedirectResponse, AbstractSetCookie, abstractCookies } from "./utils";
+import {
+  assert,
+  AbstractSetCookie,
+  abstractCookies,
+  abstractCacheConfig,
+  AbstractCacheConfig,
+  responseBodyToString,
+  BodyDescriptor
+} from "./utils";
 import { omit } from "lodash";
 
 export type RecordedAbortOutcome = { type: "abort"; key: MatchKey; errorText: string };
 export type RecordedResponseOutcome = {
   type: "response";
   key: MatchKey;
-  setCookies: AbstractSetCookie[];
   response: {
+    setCookies: AbstractSetCookie[];
+    cacheConfig: AbstractCacheConfig;
     status: number;
-    body: string | null;
+    body: BodyDescriptor | null;
     headers: {
       [key: string]: string;
     };
@@ -55,11 +64,22 @@ export class Cassette {
   constructor(readonly root: string) {}
 
   async match(key: MatchKey): Promise<RecordedOutcome | null> {
-    const matches = (await this.readBucket(key)).outcomes[key.keyHash];
+    const bucket = await this.readBucket(key);
+    const matches = bucket.outcomes[key.keyHash];
 
     if (matches) {
-      return matches[key.keyCount];
+      const orderedMatch = matches[key.keyCount];
+      if (orderedMatch) {
+        return orderedMatch;
+      } else if (key.method == "GET") {
+        // Replay GET requests regardless of order. This is a lame hack, but its because Chrome has some caching that we can't control going on. For example, if an image is included three times on a page, Chrome only makes one request for the image when in record mode, but makes three in replay mode. Not sure why, but, this fixes the majority of the problem. For non-idempotent requests, we shouldn't ever do this behaviour because request ordering is super important for them.
+        const firstResponse = find(matches, match => !!match);
+        if (firstResponse) {
+          return firstResponse;
+        }
+      }
     }
+
     return null;
   }
 
@@ -102,22 +122,14 @@ export class Cassette {
 
   private async blobFromResult(key: MatchKey, result: RecordingResult): Promise<RecordedOutcome> {
     if (result.type == "success") {
-      let body: string | null = null;
-
-      // Avoid puppeteer errors trying to access the response.text() of responses that don't have it. Accessing .text() for redirect requests or request with 0 length responses throws deep inside Puppeteer.
-      if (!isRedirectResponse(result.response)) {
-        body = await Timeout.wrap(result.response.text(), 1000, `puppeteer-vcr internal error: timed out retrieving request response`);
-      } else {
-        // console.debug("skipping body content access", key);
-      }
-
       return {
         type: "response",
         key,
-        setCookies: abstractCookies(result.response.headers()["set-cookie"]),
         response: {
+          setCookies: abstractCookies(result.response.headers()["set-cookie"]),
+          cacheConfig: abstractCacheConfig(result.response.headers()),
           status: result.response.status(),
-          body: body,
+          body: await responseBodyToString(result.response),
           headers: this.filterHeadersForSave(result.response.headers())
         }
       };
@@ -160,8 +172,9 @@ export class Cassette {
 
   private filterHeadersForSave(headers: Record<string, string>) {
     return omit(headers, [
-      "status", // status is broken out as a top level key on the response
       "date", // probably not going to be the same date that we replay the response
+      "expires", // caching headers managed by a different flow to update them relative to the replay time
+      "last-modified",
       "set-cookie", // cookies managed by a different flow that updates the max age and expiry and facilitates setting multiple
       "content-encoding", // gzipped content is not served gzipped by puppeteer-vcr, everything is unencoded
       "content-length", // puppeteer recomputes content length for us, let's let it do that and not have to worry about managing this if the body contents change somehow

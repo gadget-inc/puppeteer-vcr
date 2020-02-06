@@ -1,17 +1,18 @@
 import { Page, Request, RespondOptions } from "puppeteer";
-import { VCR } from "./vcr";
+import { VCR, UnmatchedRequestError } from "./vcr";
 import { Cassette, RecordedOutcome, RecordingResult } from "./cassette";
 import { Matcher, MatchKey } from "./matcher";
-import { assert, smallRequestOutput, reportErrors, setCookiesHeader } from "./utils";
+import { assert, smallRequestOutput, setCookiesHeader, applyCacheConfig, truncate, bodyDescriptorToBuffer } from "./utils";
 import { RequestEventManager } from "./request_event_manager";
 
 export class PageEventHandler {
   recordUnmatchedRequests = false;
   replayMatchedRequests = false;
-  raiseOnUnmatchedRequests = false;
+  abortUnmatchedRequests = false;
+  throwOnUnmatchedRequests = false;
   matcher: Matcher;
   requestEvents: RequestEventManager;
-  mode: "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough";
+  mode: "replay-only-throw" | "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough";
 
   constructor(readonly vcr: VCR, readonly page: Page, readonly cassette: Cassette) {
     this.matcher = new Matcher(this.vcr);
@@ -19,9 +20,9 @@ export class PageEventHandler {
 
     if (this.vcr.options.mode == "auto") {
       if (process.env.CI) {
+        // TODO: get to the point where we error upon unrecognized requests and can make this replay-only-throw
         this.mode = "replay-only";
       } else {
-        // TODO: get to the point where we error upon unrecognized requests
         this.mode = "record-additive";
       }
     } else {
@@ -29,8 +30,9 @@ export class PageEventHandler {
     }
 
     this.recordUnmatchedRequests = ["record-only", "record-additive"].includes(this.mode);
-    this.replayMatchedRequests = ["replay-only", "record-additive", "replay-passthrough"].includes(this.mode);
-    this.raiseOnUnmatchedRequests = ["replay-only"].includes(this.mode);
+    this.replayMatchedRequests = ["replay-only", "replay-only-throw", "record-additive", "replay-passthrough"].includes(this.mode);
+    this.abortUnmatchedRequests = ["reply-only", "replay-only-throw"].includes(this.mode);
+    this.throwOnUnmatchedRequests = ["replay-only-throw"].includes(this.mode);
   }
 
   async register() {
@@ -68,9 +70,15 @@ export class PageEventHandler {
             request.continue();
           }
         } else {
-          if (this.raiseOnUnmatchedRequests) {
-            this.logAbort(request, key);
+          if (this.abortUnmatchedRequests) {
+            await this.logAbort(request, key);
             request.abort("failed");
+
+            if (this.throwOnUnmatchedRequests) {
+              throw new UnmatchedRequestError(
+                `Unmatched request: count=${key.keyCount} method=${key.method} url=${truncate(request.url())}`
+              );
+            }
           } else {
             if (this.recordUnmatchedRequests) {
               this.watchAndRecordRequest(key, request);
@@ -115,7 +123,6 @@ export class PageEventHandler {
         // Don't try to save requests that are no longer available. During navigation, the currently loaded page might fire off requests that don't complete by the time the navigation is complete. When the navigation completes, the ExecutionContext will roll over, and Chrome will dispose of the outstanding requests' bodies. If we try to access those bodies, we either time out or get Resource Not Found errors from the devtools protocol. In this instance, we can ignore the request and not save it, as we know it wasn't necessary for the first page to render, and a real browser would discard it too. Whatever the unit under test is was able to make progress and trigger a navigation, so we just discard these two error messages if they result from saving a response.
         // console.debug("passing on request that timed out / wasn't found being retrieved from puppeteer", smallRequestOutput(request));
       } else {
-        console.debug("request that failed to save: ", smallRequestOutput(request));
         throw e;
       }
     }
@@ -123,17 +130,21 @@ export class PageEventHandler {
 
   async replayRequest(request: Request, outcome: RecordedOutcome) {
     if (outcome.type == "response") {
-      const respondOptions: RespondOptions = {
-        status: outcome.response.status,
-        headers: outcome.response.headers
-      };
+      const headers = { ...outcome.response.headers };
 
-      if (outcome.setCookies.length > 0) {
-        assert(respondOptions.headers)["set-cookie"] = setCookiesHeader(outcome.setCookies);
+      if (outcome.response.setCookies.length > 0) {
+        headers["set-cookie"] = setCookiesHeader(outcome.response.setCookies);
       }
 
+      applyCacheConfig(headers, outcome.response.cacheConfig);
+
+      const respondOptions: RespondOptions = {
+        status: outcome.response.status,
+        headers: headers
+      };
+
       if (outcome.response.body) {
-        respondOptions.body = outcome.response.body;
+        respondOptions.body = bodyDescriptorToBuffer(outcome.response.body);
       }
 
       request.respond(respondOptions);
@@ -149,6 +160,8 @@ export class PageEventHandler {
         stored: closestMatch.outcome.key,
         searchingFor: key
       });
+    } else {
+      console.debug("Aborting unmatched request", smallRequestOutput(request), "\n No close match found");
     }
   }
 

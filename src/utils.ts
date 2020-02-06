@@ -1,3 +1,4 @@
+import Timeout from "await-timeout";
 import cookie from "cookie";
 import { Request, Response, Page, SetCookie } from "puppeteer";
 import setCookie from "set-cookie-parser";
@@ -29,6 +30,7 @@ export const smallRequestOutput = (request: Request) => {
   const response = request.response();
   return {
     url: request.url(),
+    id: (request as any)._requestId,
     referrer: request.headers()["referer"],
     resourceType: request.resourceType(),
     isNavigationRequest: request.isNavigationRequest(),
@@ -121,3 +123,82 @@ export const setCookiesHeader = (abstractCookies: AbstractSetCookie[]) => {
   // Join with commas like browsers expect, not with \n
   return strings.join(",");
 };
+
+export interface AbstractCacheConfig {
+  expiresDelta?: number;
+  lastModifiedDelta?: number;
+  dateDelta?: number;
+}
+
+const abstractDate = (str: string) => {
+  const delta = Date.parse(str) - Number(new Date());
+  if (!isNaN(delta)) {
+    return delta;
+  } else {
+    return;
+  }
+};
+
+export const abstractCacheConfig = (headers: Record<string, string>): AbstractCacheConfig => {
+  const config: AbstractCacheConfig = {};
+
+  if (headers["date"]) {
+    config.dateDelta = abstractDate(headers["date"]);
+  }
+
+  if (headers["expires"]) {
+    config.expiresDelta = abstractDate(headers["expires"]);
+  }
+
+  if (headers["last-modified"]) {
+    config.lastModifiedDelta = abstractDate(headers["last-modified"]);
+  }
+
+  return config;
+};
+
+export const applyCacheConfig = (headers: Record<string, string>, cacheConfig: AbstractCacheConfig) => {
+  const now = Number(new Date());
+
+  if (cacheConfig.dateDelta) {
+    headers["date"] = new Date(now + cacheConfig.dateDelta).toUTCString();
+  }
+  if (cacheConfig.expiresDelta) {
+    headers["expires"] = new Date(now + cacheConfig.expiresDelta).toUTCString();
+  }
+  if (cacheConfig.lastModifiedDelta) {
+    headers["last-modified"] = new Date(now + cacheConfig.lastModifiedDelta).toUTCString();
+  }
+};
+
+export const truncate = (str: string, length = 1000, ending = "...") => {
+  if (str.length > length) {
+    return str.substring(0, length - ending.length) + ending;
+  } else {
+    return str;
+  }
+};
+
+export const stringSafeResourceTypes = ["document", "stylesheet", "script"];
+
+// JSON serialization safe version of the response body that we save to disk
+// We save html and other sort-of-human-readable stuff as utf-8 so it can be examined in the json file, and we save images and other binary content as serialized binary using buffer.toString('binary')
+export interface BodyDescriptor {
+  encoding: BufferEncoding;
+  content: string;
+}
+
+export const bufferToDescriptor = (buffer: Buffer, encoding: BufferEncoding) => ({ encoding, content: buffer.toString(encoding) });
+
+export const responseBodyToString = async (response: Response): Promise<BodyDescriptor | null> => {
+  // Avoid puppeteer errors trying to access the response.text() of responses that don't have it. Accessing .text() for redirect requests or request with 0 length responses throws deep inside Puppeteer.
+  if (!isRedirectResponse(response)) {
+    const buffer = await Timeout.wrap(response.buffer(), 1000, `puppeteer-vcr internal error: timed out retrieving request response`);
+    const encoding = stringSafeResourceTypes.includes(response.request().resourceType()) ? "utf-8" : "binary";
+    return bufferToDescriptor(buffer, encoding);
+  } else {
+    return null;
+  }
+};
+
+export const bodyDescriptorToBuffer = (descriptor: BodyDescriptor) => Buffer.from(descriptor.content, descriptor.encoding);
