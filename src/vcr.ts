@@ -1,7 +1,7 @@
 import fs from "fs";
 import { defaults, remove } from "lodash";
 import path from "path";
-import { Page } from "puppeteer";
+import { Page, Request } from "puppeteer";
 import sanitize from "sanitize-filename";
 import { Cassette } from "./cassette";
 import { PageEventHandler } from "./page_event_handler";
@@ -12,6 +12,7 @@ export interface VCROptions {
   cassetteRoot: string;
   passthroughDomains: string[];
   blacklistDomains: string[];
+  onRequestCompleted: null | ((request: Request) => void);
   customizeMatchKey: (key: MatchKey) => MatchKey;
   mode: "replay-only-throw" | "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough" | "auto";
 }
@@ -28,6 +29,7 @@ export class VCR {
       cassetteRoot: "./__recordings__",
       passthroughDomains: [],
       blacklistDomains: [],
+      onRequestCompleted: null,
       customizeMatchKey: (key: MatchKey) => key
     });
   }

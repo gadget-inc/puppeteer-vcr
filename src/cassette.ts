@@ -3,7 +3,7 @@ import path from "path";
 import mkdirp from "mkdirp";
 import sanitize from "sanitize-filename";
 import { Mutex } from "async-mutex";
-import { find } from "lodash";
+import { findLast } from "lodash";
 import { detailedDiff } from "deep-object-diff";
 import { MatchKey } from "./matcher";
 import { Response, Request } from "puppeteer";
@@ -18,10 +18,11 @@ import {
 } from "./utils";
 import { omit } from "lodash";
 
-export type RecordedAbortOutcome = { type: "abort"; key: MatchKey; errorText: string };
+export type RecordedAbortOutcome = { type: "abort"; duration: number; key: MatchKey; errorText: string };
 export type RecordedResponseOutcome = {
   type: "response";
   key: MatchKey;
+  duration: number;
   response: {
     setCookies: AbstractSetCookie[];
     cacheConfig: AbstractCacheConfig;
@@ -35,7 +36,9 @@ export type RecordedResponseOutcome = {
 
 export type RecordedOutcome = RecordedAbortOutcome | RecordedResponseOutcome;
 
-export type RecordingResult = { type: "success"; response: Response } | { type: "failure"; request: Request };
+export type RecordingResult =
+  | { type: "success"; duration: number; response: Response }
+  | { type: "failure"; duration: number; request: Request };
 
 export interface DetailedDiffResult {
   added: {
@@ -72,8 +75,8 @@ export class Cassette {
       if (orderedMatch) {
         return orderedMatch;
       } else if (key.method == "GET") {
-        // Replay GET requests regardless of order. This is a lame hack, but its because Chrome has some caching that we can't control going on. For example, if an image is included three times on a page, Chrome only makes one request for the image when in record mode, but makes three in replay mode. Not sure why, but, this fixes the majority of the problem. For non-idempotent requests, we shouldn't ever do this behaviour because request ordering is super important for them.
-        const firstResponse = find(matches, match => !!match);
+        // Replay GET requests regardless of if we have an exact ordering match. This is a lame hack, but its because Chrome has some caching that we can't control going on. For example, if an image is included three times on a page, Chrome only makes one request for the image when in record mode, but makes three in replay mode. The second two won't have recorded responses, but because it's a GET, its pretty safe to just assume the response hasn't changed since last time. This isn't always true, but hey, we're on the internet here, if you've got a better idea have at it. We use the last response in the array presuming the current count has exhausted all responses and we should replay the *most* recent one as it is the most up to day. Not sure why the caching issue exists, but, this fixes the majority of the problem. For non-idempotent requests, we shouldn't ever do this behaviour because request ordering is super important for them.
+        const firstResponse = findLast(matches, match => !!match);
         if (firstResponse) {
           return firstResponse;
         }
@@ -125,6 +128,7 @@ export class Cassette {
       return {
         type: "response",
         key,
+        duration: result.duration,
         response: {
           setCookies: abstractCookies(result.response.headers()["set-cookie"]),
           cacheConfig: abstractCacheConfig(result.response.headers()),
@@ -137,6 +141,7 @@ export class Cassette {
       return {
         type: "abort",
         key,
+        duration: result.duration,
         errorText: assert(result.request.failure()).errorText
       };
     }

@@ -2,7 +2,7 @@ import { Page, Request, RespondOptions } from "puppeteer";
 import { VCR, UnmatchedRequestError } from "./vcr";
 import { Cassette, RecordedOutcome, RecordingResult } from "./cassette";
 import { Matcher, MatchKey } from "./matcher";
-import { assert, smallRequestOutput, setCookiesHeader, applyCacheConfig, truncate, bodyDescriptorToBuffer } from "./utils";
+import { assert, smallRequestOutput, setCookiesHeader, applyCacheConfig, truncate, bodyDescriptorToBuffer, sleep } from "./utils";
 import { RequestEventManager } from "./request_event_manager";
 
 export class PageEventHandler {
@@ -49,6 +49,10 @@ export class PageEventHandler {
       async () => {
         const key = this.matcher.matchKey(request);
 
+        if (this.vcr.options.onRequestCompleted) {
+          this.installRequestCallbacks(request);
+        }
+
         if (this.shouldIgnoreRequest(request, key)) {
           return request.continue();
         }
@@ -57,33 +61,33 @@ export class PageEventHandler {
           return request.abort("failed");
         }
 
-        const recordedOutcome = await this.cassette.match(key);
+        if (this.replayMatchedRequests) {
+          // Important: we only try to match the request if we are replaying. This is important for successive GET requests that should be recorded as independent
+          const recordedOutcome = await this.cassette.match(key);
 
-        if (recordedOutcome) {
-          if (this.replayMatchedRequests) {
-            process.nextTick(async () => {
-              await this.vcr.task(async () => {
-                await this.replayRequest(request, recordedOutcome);
-              });
+          if (recordedOutcome) {
+            sleep(recordedOutcome.duration);
+            await this.vcr.task(async () => {
+              await this.replayRequest(request, recordedOutcome);
             });
           } else {
-            request.continue();
+            if (this.abortUnmatchedRequests) {
+              await this.logAbort(request, key);
+              request.abort("failed");
+
+              if (this.throwOnUnmatchedRequests) {
+                throw new UnmatchedRequestError(
+                  `Unmatched request: count=${key.keyCount} method=${key.method} url=${truncate(request.url())}`
+                );
+              }
+            } else {
+              request.continue();
+            }
           }
         } else {
-          if (this.abortUnmatchedRequests) {
-            await this.logAbort(request, key);
-            request.abort("failed");
-
-            if (this.throwOnUnmatchedRequests) {
-              throw new UnmatchedRequestError(
-                `Unmatched request: count=${key.keyCount} method=${key.method} url=${truncate(request.url())}`
-              );
-            }
+          if (this.recordUnmatchedRequests) {
+            this.watchAndRecordRequest(key, request);
           } else {
-            if (this.recordUnmatchedRequests) {
-              this.watchAndRecordRequest(key, request);
-            }
-
             request.continue();
           }
         }
@@ -93,27 +97,31 @@ export class PageEventHandler {
     );
   };
 
-  async watchAndRecordRequest(key: MatchKey, request: Request) {
-    const events = this.requestEvents.events(request);
+  watchAndRecordRequest(key: MatchKey, request: Request) {
+    const requestEvents = this.requestEvents.events(request);
+    const startTime = Date.now();
 
-    events.on("failed_or_finished", () =>
+    requestEvents.on("failed_or_finished", () =>
       this.vcr.task(
         async () => {
-          await this.saveRequest(key, request);
+          const duration = Date.now() - startTime;
+          await this.saveRequest(key, request, duration);
         },
         "requestfailed/finished",
         smallRequestOutput(request)
       )
     );
+
+    request.continue();
   }
 
-  async saveRequest(key: MatchKey, request: Request) {
+  async saveRequest(key: MatchKey, request: Request, duration: number) {
     let data: RecordingResult;
 
     if (request.failure()) {
-      data = { type: "failure", request };
+      data = { type: "failure", duration, request };
     } else {
-      data = { type: "success", response: assert(request.response()) };
+      data = { type: "success", duration, response: assert(request.response()) };
     }
 
     try {
@@ -129,6 +137,11 @@ export class PageEventHandler {
   }
 
   async replayRequest(request: Request, outcome: RecordedOutcome) {
+    if (this.recordUnmatchedRequests) {
+      throw new Error(
+        "puppeteer-vcr internal error: should never be replaying requests while also recording them because replays get recorded"
+      );
+    }
     if (outcome.type == "response") {
       const headers = { ...outcome.response.headers };
 
@@ -182,5 +195,9 @@ export class PageEventHandler {
     }
 
     return this.vcr.options.blacklistDomains.includes(key.url.hostname);
+  }
+
+  installRequestCallbacks(request: Request) {
+    this.requestEvents.events(request).on("failed_or_finished", assert(this.vcr.options.onRequestCompleted));
   }
 }
