@@ -1,0 +1,56 @@
+{
+  "outcomes": {
+    "4198886345": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "intg.snapchat.com",
+            "port": "",
+            "pathname": "/shopify/shopify-scevent.js",
+            "query": {
+              "id": "b90a122c-03f2-4ac2-bddc-816846651654",
+              "shop": "scroll-commerce.myshopify.com"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "4198886345",
+          "extra": {}
+        },
+        "duration": 428,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -58035231,
+            "lastModifiedDelta": -144446231
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "!function(t){var e={};function r(n){if(e[n])return e[n].exports;var a=e[n]={i:n,l:!1,exports:{}};return t[n].call(a.exports,a,a.exports,r),a.l=!0,a.exports}r.m=t,r.c=e,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(t,\"__esModule\",{value:!0})},r.t=function(t,e){if(1&e&&(t=r(t)),8&e)return t;if(4&e&&\"object\"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,\"default\",{enumerable:!0,value:t}),2&e&&\"string\"!=typeof t)for(var a in t)r.d(n,a,function(e){return t[e]}.bind(null,a));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,\"a\",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p=\"/shopify/\",r(r.s=652)}({652:function(t,e,r){t.exports=r(653)},653:function(t,e){!function(){if(!window.__SnapPixel){window.__SnapPixel={};var t={initialize:function(){if(!window.snaptr){var t=window.snaptr=function(){t.handleRequest?t.handleRequest.apply(t,arguments):t.queue.push(arguments)};t.queue=[];var e=\"script\",r=document.createElement(e);r.async=!0,r.src=\"https://sc-static.net/scevent.min.js\";var n=document.getElementsByTagName(e)[0];n.parentNode.insertBefore(r,n)}},getCurrentScript:function(){var t=document.currentScript;if(!t)for(var e=document.getElementsByTagName(\"script\"),r=0;r<e.length;r++)if(e[r].src&&0===e[r].src.indexOf(\"https://intg.snapchat.com/shopify/shopify_scevent.js?id=\"))return e[r];return t},getUrlParameters:function(t){var e={};return t.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(t,r,n){e[r]=n}),e},scrapeProductMetadata:function(){var e=null,r=t.scrapeSearchTerm();if(r&&(e={search_string:r}),window.ShopifyAnalytics&&window.ShopifyAnalytics.meta.product){var n=window.ShopifyAnalytics.meta;if(n){(e=e||{}).currency=n.currency,e.item_category=n.product.type;var a=n.selectedVariantId?n.product.variants.find(function(t){return String(t.id)===String(n.selectedVariantId)}):n.product.variants[0];a&&(a.id&&(e.item_ids=[String(a.id)]),a.name&&(e.description=a.name.trim()),e.price=a.price?Number((a.price/100).toFixed(2)):0)}}return e},scrapePurchaseMetadata:function(){var t=null,e=window.Shopify.checkout;if(e)try{t={currency:e.currency,description:JSON.stringify(e.line_items.map(function(t){return{product_id:t.product_id,variant_id:t.variant_id,sku:t.sku,title:t.title,variant_title:t.variant_title,price:t.price,line_price:t.line_price,quantity:t.quantity}})),item_ids:e.line_items.map(function(t){return t.variant_id?String(t.variant_id):null}).filter(Boolean),price:e.subtotal_price,transaction_id:e.order_id}}catch(t){}return t},scrapeStartCheckoutMetadata:function(){var t={},e=Array.from(document.querySelectorAll(\"*[data-cart-item]\")).map(function(t){var e={},r=t.querySelector(\"*[data-cart-item-title]\"),n=t.querySelector(\"*[data-cart-item-price]\"),a=t.querySelector(\"*[data-cart-item-label-quantity]\"),i=t.getAttribute(\"data-cart-item-id\"),o=!!r&&r.textContent,c=!!n&&r.price,u=!!a&&r.quantity;return i&&(i.indexOf(\":\")>-1&&(i=i.split(\":\")[0]),e.variantId=i),o&&(e.variantTitle=o),c&&(e.price=c.replace(/[^0-9.]/g,\"\")),u&&(e.quantity=u),e}),r=!!window.ShopifyAnalytics.meta&&window.ShopifyAnalytics.meta.currency;r&&(t.currency=r);var n=document.querySelector(\"*[data-cart-subtotal]\");return n&&(t.price=(n.textContent||\"\").replace(/[^0-9.]/g,\"\")),e.length>0&&(t.item_ids=e.map(function(t){return t.variantId?String(t.variantId):null}).filter(Boolean),t.description=JSON.stringify(e.map(function(t){return{variant_id:t.variantId,title:t.variantTitle,price:t.price,quantity:t.quantity}}))),t},scrapeSearchTerm:function(){var e=null;try{var r=window.location.pathname.split(\"/\");if(\"search\"===r[r.length-1])e=t.getUrlParameters(window.location.href).q;else if(document.referrer){var n=new URL(document.referrer);if(n.hostname===window.location.hostname){var a=n.pathname.split(\"/\");\"search\"===a[a.length-1]&&(e=t.getUrlParameters(n.href).q)}}}catch(t){}return e},scrapeUserId:function(){if(window.ShopifyAnalytics){var t=window.ShopifyAnalytics.lib.user();if(t){try{return t.id()}catch(t){}try{return t.traits().uniqToken}catch(t){}try{return t.properties().uniqToken}catch(t){}try{return t.anonymousId()}catch(t){}}return __st_uniqToken||__st.u}},scrapeInitMeta:function(){var t={event_tag:\"shopify\"};try{var e=window.Shopify.checkout,r=!!e.phone&&e.phone.replace(/[^0-9]/g,\"\"),n=e.email;n&&(t.user_email=n),r&&(t.user_phone_number=r)}catch(t){}return t},logAddToCartEvent:function(e){var r=t.scrapeProductMetadata();return r&&(t.logEvent(\"ADD_CART\",r),e&&e.target&&e.target.removeEventListener(\"submit\",t.logAddToCartEvent)),!0},logCheckoutEvent:function(e){var r=t.scrapeStartCheckoutMetadata();return r&&t.logEvent(\"START_CHECKOUT\",r),!0},logEvent:function(t,e){var r={};if(e)for(var n in e)e.hasOwnProperty(n)&&(r[n]=e[n]);window.snaptr(\"track\",t,r)},logPageViewEvent:function(){var e=t.scrapeProductMetadata();t.logEvent(\"PAGE_VIEW\",e)},logPurchaseEvent:function(){var e=t.scrapePurchaseMetadata();e&&t.logEvent(\"PURCHASE\",e)},logSearchEvent:function(e){if(!e||!e.target)return!0;var r=e.target.querySelector(\"*[name=q]\");return r&&r.value&&t.logEvent(\"SEARCH\",{search_string:r.value}),!0},logSignUpEvent:function(e){if(!e||!e.target)return!0;var r=e.target.querySelector(\"input[type=email]\");return r&&r.value&&t.logEvent(\"SIGN_UP\",{sign_up_method:\"Mailing List Subscription\"}),!0},logViewContentEvent:function(){var e=t.scrapeProductMetadata();t.logEvent(\"VIEW_CONTENT\",e)},trackAddToCart:function(){for(var e=document.querySelectorAll(\"form[action^='/cart/add']\"),r=0;r<e.length;r++)e[r].addEventListener(\"submit\",t.logAddToCartEvent,!0)},trackCheckout:function(){for(var e=document.querySelectorAll(\"form[action='/cart'], form[action='/cart/']\"),r=0;r<e.length;r++)e[r].addEventListener(\"submit\",t.logCheckoutEvent,!0)},trackSearch:function(){for(var e=document.querySelectorAll(\"form[action^='/search']\"),r=0;r<e.length;r++)e[r].addEventListener(\"submit\",t.logSearchEvent,!0)},trackSignUp:function(){for(var e=document.querySelectorAll(\"form[action^='/contact']\"),r=0;r<e.length;r++)e[r].addEventListener(\"submit\",t.logSignUpEvent,!0)},trackViewContent:function(){window.ShopifyAnalytics&&window.ShopifyAnalytics.meta&&window.ShopifyAnalytics.meta.page&&\"product\"===window.ShopifyAnalytics.meta.page.pageType&&t.logViewContentEvent()},trackStoreSession:function(){var e=t.scrapeInitMeta();try{var r=t.getCurrentScript(),n=t.getUrlParameters(r.src).id;window.snaptr(\"init\",n,e),t.logPageViewEvent(),window.Shopify.checkout?t.logPurchaseEvent():(t.trackAddToCart(),t.trackSearch(),t.trackCheckout(),t.trackSignUp(),t.trackViewContent())}catch(t){}}};t.initialize(),t.trackStoreSession()}}()}});"
+          },
+          "headers": {
+            "server": "AmazonS3",
+            "age": "58036",
+            "vary": "Accept-Encoding",
+            "x-cache": "Hit from cloudfront",
+            "content-type": "application/javascript",
+            "status": "200",
+            "x-amz-cf-pop": "YTO50-C2",
+            "x-amz-cf-id": "bpJ5P2S8Tq3mCZ92b2PUxtTiXx_jLCFxdYP_KIHpDuxcSoIIilAX-w==",
+            "via": "1.1 a70b162ad0cdef09371d7a2f60fde2e8.cloudfront.net (CloudFront)"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

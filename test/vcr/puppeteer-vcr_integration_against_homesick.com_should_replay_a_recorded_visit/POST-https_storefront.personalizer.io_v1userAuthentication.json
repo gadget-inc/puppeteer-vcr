@@ -1,0 +1,56 @@
+{
+  "outcomes": {
+    "1644462043": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "POST",
+          "body": "<NORMALIZED>",
+          "isNavigationRequest": false,
+          "resourceType": "xhr",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "storefront.personalizer.io",
+            "port": "",
+            "pathname": "/v1/userAuthentication",
+            "query": {
+              "storefront": "true"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "1644462043",
+          "extra": {}
+        },
+        "duration": 449,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -729,
+            "expiresDelta": -602764808735
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\"ContentProviderGuid\":\"7157795d-2a1c-47a2-ba43-7873574a9268\",\"ExperienceGuid\":\"92949873-b5c2-4bfb-93c9-5ddad5c36b0a\",\"UserID\":4387840562,\"ContextID\":\"hPSVJL2P6E6KDFn98byvUg\",\"ContextExpirationTimeStamp\":1581091808602,\"CurrencyCode\":\"USD\",\"CurrencySymbol\":\"$\",\"EncUserID\":\"78B27F0BAB529B5CCC72E229CA50F905\"}"
+          },
+          "headers": {
+            "pragma": "no-cache",
+            "server": "Microsoft-IIS/8.5",
+            "x-aspnet-version": "4.0.30319",
+            "vary": "Accept-Encoding",
+            "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "p3p": "LimeSpot does not have a P3P policy. You can find out why at https://limespot.com/p3p",
+            "access-control-allow-origin": "*",
+            "cache-control": "no-cache",
+            "content-type": "application/json; charset=utf-8",
+            "access-control-allow-headers": "Origin, X-Personalizer-Access-Token, X-Personalizer-Context-ID, Content-Type, Content-Disposition, Accept"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

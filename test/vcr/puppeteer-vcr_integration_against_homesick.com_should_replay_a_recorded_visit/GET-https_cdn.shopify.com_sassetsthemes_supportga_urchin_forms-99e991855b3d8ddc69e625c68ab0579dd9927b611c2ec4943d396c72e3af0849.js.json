@@ -1,0 +1,63 @@
+{
+  "outcomes": {
+    "1999989084": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/assets/themes_support/ga_urchin_forms-99e991855b3d8ddc69e625c68ab0579dd9927b611c2ec4943d396c72e3af0849.js",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "1999989084",
+          "extra": {}
+        },
+        "duration": 62,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -48,
+            "lastModifiedDelta": -30879053048
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "function registerGA(){for(var e=document.getElementsByTagName(\"form\"),n=0;n<e.length;n++)try{if(\"post\"==e[n].method){var t=document.createElement(\"input\");t.type=\"hidden\",t.name=URCHINFIELD,t.value=getUrchinFieldValue(),e[n].appendChild(t)}}catch(o){}}!function(){var e=window.onload;e===undefined||null==e?window.onload=function(){registerGA()}:window.onload=function(){registerGA(),e()}}();"
+          },
+          "headers": {
+            "x-url": "/s/assets/themes_support/ga_urchin_forms-99e991855b3d8ddc69e625c68ab0579dd9927b611c2ec4943d396c72e3af0849.js",
+            "x-content-type-options": "nosniff",
+            "x-cdn": "Fastly, http2",
+            "edge-cache-tag": "cdn-shopify-com-s-assets-themes_support-ga_urchin_forms-99e991855b3d8ddc69e625c68ab0579dd9927b611c2ec4943d396c72e3af0849-js",
+            "status": "200",
+            "x-cache": "HIT, HIT",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "4dff6fcd52f5cd2af22a38a33e2235e7",
+            "x-served-by": "cache-jfk8128-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.013228,VS0,VE0",
+            "vary": "Accept-Encoding",
+            "content-type": "application/javascript",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31556952, immutable",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/assets/themes_support/ga_urchin_forms-99e991855b3d8ddc69e625c68ab0579dd9927b611c2ec4943d396c72e3af0849.js>; rel=\"canonical\"",
+            "x-cache-hits": "143964, 3776"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

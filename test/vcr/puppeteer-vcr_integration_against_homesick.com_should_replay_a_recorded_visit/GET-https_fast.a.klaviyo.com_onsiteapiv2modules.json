@@ -1,0 +1,64 @@
+{
+  "outcomes": {
+    "1700609631": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "fetch",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "fast.a.klaviyo.com",
+            "port": "",
+            "pathname": "/onsite/api/v2/modules",
+            "query": {
+              "company_id": "MCrXFQ"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "1700609631",
+          "extra": {}
+        },
+        "duration": 146,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -542
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\"enabled_module_ids\": [\"ANALYTICS\"]}"
+          },
+          "headers": {
+            "age": "5455536",
+            "x-cache": "HIT",
+            "status": "200",
+            "access-control-max-age": "86400",
+            "strict-transport-security": "max-age=900",
+            "via": "1.1 varnish",
+            "x-served-by": "cache-yyz4521-YYZ",
+            "access-control-allow-origin": "*",
+            "server": "nginx",
+            "klaviyo_beta_cookie": "1",
+            "vary": "Accept-Encoding, Cookie",
+            "access-control-allow-methods": "GET",
+            "content-type": "application/json",
+            "x-upstream": "Sync-Api, Sync-Api",
+            "cache-control": "no-cache, no-store, must-revalidate",
+            "access-control-allow-credentials": "true",
+            "accept-ranges": "bytes",
+            "access-control-allow-headers": "",
+            "x-cache-hits": "1"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,68 @@
+{
+  "outcomes": {
+    "3135112391": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/t/72/assets/algolia_init.js",
+            "query": {
+              "7608": ""
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "3135112391",
+          "extra": {}
+        },
+        "duration": 164,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -785,
+            "expiresDelta": 31535946215,
+            "lastModifiedDelta": -2571763785
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "(function (algolia, $, _, Shopify) {\n  'use strict';\n\n  if (algolia.config.powered_by) {\n    console.log(\"You're using Algolia !\\n\" +\n      'Visit https://www.algolia.com/ for more insight about what we do.');\n  }\n\n  /* No conflict */\n  algolia.$ = algolia.jQuery = $.noConflict(true);\n  algolia._ = algolia.underscore = algolia.lodash = _.noConflict();\n\n  /* Store variables */\n  algolia.storeName = window.location.hostname.replace(/^www\\./, '').replace(/^([^.]*)\\..*$/, '$1');\n\n  /* Client setup */\n  algolia.client = algoliasearch(algolia.config.app_id, algolia.config.search_api_key);\n  algolia.templates = {};\n  algolia.indices = {};\n  algolia.full_results = window.location.href.match(/\\/search/);\n  // we want to match /collections/<handle> but only if handle != 'all'\n  algolia.is_collection_results_page = !!window.location.pathname.match(/^\\/collections\\/(?!all)([^/]+)[/]*$/);\n\n  /* We use Hogan as our templating engine with a custom delimiter: [[ ... ]] */\n  algolia.hoganOptions = { delimiters: '[[ ]]' };\n  algolia.getTemplate = function getTemplate (name) {\n    return document.getElementById('template_algolia_' + name).innerHTML;\n  };\n  algolia.compileTemplate = function compileHoganTemplate (name) {\n    return Hogan.compile(algolia.getTemplate(name), algolia.hoganOptions);\n  };\n  algolia.render = function render (template, obj) {\n    obj = _.assign({}, obj, { helpers: algolia.hoganHelpers });\n    return template.render(obj);\n  };\n\n  /* Add CSS block after current script */\n  algolia.appendStyle = function appendStyle (content) {\n    function insertAfter(newNode, referenceNode) {\n      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);\n    }\n    var scripts = document.getElementsByTagName('script');\n    var currentScript = scripts[scripts.length - 1];\n    var style = document.createElement('style');\n    style.innerHTML = content;\n    insertAfter(style, currentScript);\n  }\n\n  /* Here because we need to ensure we have a fallback with '$ '. */\n  algolia.money_format = algolia.getTemplate('money_format').replace(/^\\s+|\\s+$/g, '');\n  algolia.formatMoney = function formatMoney (cents) {\n    var val = (cents / 100.0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });\n    var format = algolia.money_format;\n\n    // Not necessary, but allows for more risk tolerance if Shopify.formatMoney doesn't work as we want\n    var regexp = /^([^{}]*)\\{\\{amount\\}\\}([^{}]*)$/;\n    if (format.match(regexp)) {\n      return format.replace(regexp, \"$1\" + val + \"$2\");\n    }\n\n    if (!_.isUndefined(Shopify) && !_.isUndefined(Shopify.formatMoney)) {\n      return Shopify.formatMoney(cents, format);\n    }\n\n    return '$' + val;\n  };\n}(algoliaShopify, $, _, Shopify));\n"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/t/72/assets/algolia_init.js?7608",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-t-72-assets-algolia_init-js",
+            "status": "200",
+            "x-cache": "HIT, MISS",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "256a84abbade709c5a655dc4dadfbbd2a4ad36d1594c7a3d8db0d286300e6117",
+            "x-served-by": "cache-jfk8149-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.735777,VS0,VE12",
+            "vary": "Accept-Encoding",
+            "content-type": "application/javascript",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/t/72/assets/algolia_init.js>; rel=\"canonical\"",
+            "x-cache-hits": "1, 0"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,57 @@
+{
+  "outcomes": {
+    "2800116761": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "xhr",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "api.vyrl.co",
+            "port": "",
+            "pathname": "/v1/recommendedCollections",
+            "query": {
+              "sourceId": "scroll-commerce.myshopify.com"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2800116761",
+          "extra": {}
+        },
+        "duration": 434,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -181
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": ""
+          },
+          "headers": {
+            "via": "1.1 a5604febb90b0a9f31d245c373174857.cloudfront.net (CloudFront)",
+            "x-amz-cf-pop": "YTO50-C1",
+            "x-amzn-requestid": "4db2094c-4cbb-4f52-8eae-90fe505a4910",
+            "status": "200",
+            "x-cache": "Miss from cloudfront",
+            "content-type": "application/json",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "X-Collections-Available",
+            "x-amzn-trace-id": "Root=1-5e3d84d9-f50cb4c7610209e9f2302216;Sampled=0",
+            "x-collections-available": "false",
+            "x-amz-apigw-id": "HiGx7EtcPHcFpDw=",
+            "x-amz-cf-id": "ZbpxUEWqsHSlQCHZq9B_FNxtAxXv3BsVhoSIvNaFGtXA3KQ2OiWfaA=="
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

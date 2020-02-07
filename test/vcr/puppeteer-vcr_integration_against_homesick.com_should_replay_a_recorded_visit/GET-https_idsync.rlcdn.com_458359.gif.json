@@ -1,0 +1,49 @@
+{
+  "outcomes": {
+    "2280047487": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "idsync.rlcdn.com",
+            "port": "",
+            "pathname": "/458359.gif",
+            "query": {
+              "partner_uid": "f405f50a-a6ad-9328-2b61-d1c727633eef"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2280047487",
+          "extra": {}
+        },
+        "duration": 143,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -585
+          },
+          "status": 307,
+          "body": null,
+          "headers": {
+            "via": "1.1 google",
+            "status": "307",
+            "p3p": "CP=\"NOI DSP COR NID CURa ADMa DEVa PSAa PSDa OUR BUS COM INT OTC PUR STA\"",
+            "location": "https://idsync.rlcdn.com/1000.gif?memo=CPf8GxIwCiwIARCd5gEaJGY0MDVmNTBhLWE2YWQtOTMyOC0yYjYxLWQxYzcyNzYzM2VlZhAAGg0I2Yn28QUSBQjoBxAAQgBKAA",
+            "cache-control": "no-cache, no-store",
+            "timing-allow-origin": "*",
+            "alt-svc": "clear"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,62 @@
+{
+  "outcomes": {
+    "2648852917": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopifycloud.com",
+            "port": "",
+            "pathname": "/messenger_commerce/assets/custom-button/compact_blue_large-f3301393bbcf1b7c4dbee50fbbb69c69edffc5aae5251c8ef8a5af11515f31a1.png",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "2648852917",
+          "extra": {}
+        },
+        "duration": 89,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -2349855249,
+            "expiresDelta": 29186144751,
+            "lastModifiedDelta": -2496094249
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "PNG\r\n\u001a\n\u0000\u0000\u0000\rIHDR\u0000\u0000\u00004\u0000\u0000\u00004\b\u0003\u0000\u0000\u0000ò¦ëÙ\u0000\u0000\u0001wPLTEGpL\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0003\u0000\u0001\u0001\u0000ÿ\u0000\u0000\u0000\u0000\u0000\u0000\u0000yÆ\u0000\u0000\u0000\u0000sÝ\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ö\u0000ÿ\u0000ÿ\u0000yá\u0000ÿ\u0000\u0014\u001e\u0000zë\u0000þ\u0000}î\u0000û\u0000ý\u0000ÿ\u0000wæ\u0000U¡\u0000\u001c4\u00009i\u0000vâ\u0000ü\u0000ú\u0000zë\u0000[¤\u0000ü\u0000jÊ\u0000rÔ\u0000þ\u0000ú\u0000ÿ\u0000ú\u0000÷\u00009U\u0000ö\u0000b¼\u0000rÜ\u0000ú\u0000mÒ\u0000vã\u0000~ò\u0000ù\u0000õ\u0000~ò\u0000C\u0000{ì\u0000uâ\u0000_·\u0000þ\u0000þ\u0000õ\u0000(F\u0000iÉ\u0000cÀ\u0000hÆ\u0000û\u0000G\u0000(H\u0000tß\u0000H\u0000X§\u0000ÿùúü\u0007ÿ\u0003ÿ\rÿ\u001cÿ«Õýãðüa³þ\u0017ÿ&ÿÕéü÷ùüR¬þ¡ÐýÃáü·ÛýÊýn¸þx½þ~Àý,ÿÍýÎåüÄýðöüéòüÇý$ÿÝíü[¯þÛìüËãüj¶þF¥þÃý;ÿ!ðæÁ\u0000\u0000\u0000XtRNS\u0000\u0005\u000b \u0003\u0006\u0004\u0001\u0002\b\u0014\r+\u0012\u001c.\u0010\"\u000f\u0018&1ú\u0019\u0016\n5­86$Õþö&å6ÄñJÇÛ¿oFS¹êã±\u000e\u0018/Ïnç¼^\u0012¦~Wg£§Ð·Í\\Ëcµ­Ý:îH9JQ#\u0017é\u0000\u0000\u0003#IDATxÚÖec³H\u0010Àñ\u0004\r\u001a÷¤îÞ>.us\u001bêîzn\u001fþfØÀ\u0011ðÍÝT\u0012\t&c±Z2\u0016i\u001b=_\u001c\u001cÚ\u0019\u001eéî\u001e\u0019Þ\u0019\u001a,lG\u000bÛÝà©{{¡¬%yß\u000bzß7eHO\u0004Ù'ÁÏÜ1¯¡i¯\u001b\rÃ1=ï EïzpXÐ|}ð+4oF M#oHyÍ«ahÛð+eA\u001c\u0010\r,»¢osaPîmF1#)\u001f!T\u001f\u0015©¦p¹A\bÙ .è\f\rfi\u0014\u001bôy\u0000ü\u001d@}»`7ð%e>`\u001e~¾\u0003oÇ\u0017ÀW$Ù¾:nÙo~=²¬[pûûÉ}Å2\u0017HÛ¥Vý»ýaaÇÎÔkë\u0019VS¸\u001fmX©7'gÝïö\u000b\u001e-ë\u0006ÜV\u0012DS§ÀÛþ\u0016ëü\u0002öï_,ë\u0012þoJå\u0010á\n¹:sE©g<u¸çý¡(à¡\"1Q+xo|÷\u001a{¹´Ü®wÁÓ´ÒÓà¶w\u0003nNàÖ1Wûàm-­6Ê÷\u001b8<\u0005ì§z\u00033\u000eJoÓuõ/°~!sv\u0002õm:¨°\u0005µþ9»\u00007¼ëß\u000eÀ×OìLx{ÚM\u001cÿµ\u0007Þã\u001dúÍtR%D\u0013¿Ä.Î·ÿnÀÀ\u000f¼ÁIì'Âü®\u000bBûÑL(\u0002\"\u0001¯/3\u0013\u000e-eð\u001e\bá¡TþË©0æÛïyÕþ)gûeÆÂ ¹\fÛ\u000eQLä\n¼^noÊ:_àÄ\u0018C8*éëogF³|ÂùsD§2L½o²µYëÓM\r\"D\u0017\u000bfË-wëÃåèê<-Sé¤^ú¢)é+éÉtÊY®¶ \u001e+\u0019ïlBºF'²z2`×M±\u0005éXÎ&d½Õù4\u001aZÎ«Dük¨ÛóCÛøf¢gøß¢ØF¹Åññ±¯ÊýýåÅ¯ÇÆ+D¦ª)Ìxb?º&'*UªU«¥l\\GcD)æ3\u0018ý\u0006wÂÆºý®Çít\u0014<\u0012M\u0011\u00052AÄ\u0015f¶²(:x*!È\u0017\u0004§\u0012H0úa7;2¸KZ5\fCU\u000b\u0005U5\u0012)®F\u0006£Ài\u0005CÃç8¢$\\â.=a\u0018´~T¤(%IB\u000bÁ~DÎÝEv¿íh\u0004z=[?tîÛÃ\u0013RX8ò\u001fþs\b\u0006%\u001c¤~\u0000\u0000\u0000\u0000IEND®B`"
+          },
+          "headers": {
+            "age": "2349855",
+            "x-guploader-uploadid": "AEnB2UqttdqQWnmCd9QZdgieskRZQdr06zRRudd-ear48wFZuN97xE1a5kPy1L30eWeFqi0UoMLgJkWAYMiBEFx4Js_jekZ3N_9OhNww_IsH5o21qD_g1Us",
+            "x-goog-storage-class": "MULTI_REGIONAL",
+            "status": "200",
+            "x-goog-metageneration": "1",
+            "x-goog-stored-content-encoding": "identity",
+            "content-disposition": "inline",
+            "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000",
+            "server": "UploadServer",
+            "etag": "\"a0de13222225c01e6bc185daa33a8111\"",
+            "x-goog-hash": "crc32c=48bnGA==, md5=oN4TIiIlwB5rwYXaozqBEQ==",
+            "x-goog-generation": "1573503406157991",
+            "access-control-allow-origin": "*",
+            "cache-control": "public",
+            "x-goog-stored-content-length": "1347",
+            "accept-ranges": "bytes",
+            "content-type": "image/png"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

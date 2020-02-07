@@ -1,0 +1,63 @@
+{
+  "outcomes": {
+    "2656813767": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "fetch",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "www.affirm.com",
+            "port": "",
+            "pathname": "/api/v3/features/",
+            "query": {
+              "experiments": "load_test_legacy_exp",
+              "is_user_logged_in": "false"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2656813767",
+          "extra": {}
+        },
+        "duration": 273,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -596
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\"experiments\": {\"load_test_legacy_exp\": {\"project_name\": \"affirm_js\", \"exposed\": false, \"cohort_id\": null, \"assignment_type\": \"control\", \"eligible\": true, \"unit_type\": \"device_id\", \"experiment_name\": \"load_test_legacy_exp\", \"unit_value\": \"5842ece8-7827-4211-8846-c87a607ef3dd\", \"policy_record_ari\": \"1e05464ff0824cefa410524ba844a222\"}}, \"features\": {}}"
+          },
+          "headers": {
+            "vary": "Accept-Encoding, Origin",
+            "x-amz-cf-pop": "YTO50-C2",
+            "x-cache": "Miss from cloudfront",
+            "status": "200",
+            "strict-transport-security": "max-age=86400",
+            "x-affirm-cache-status": "MISS",
+            "access-control-allow-origin": "https://homesick.com",
+            "x-affirm-request-id": "9bf5ec44-8da5-40c4-c067-1c9faf60fd1b",
+            "server": "openresty",
+            "access-control-max-age": "86400",
+            "access-control-allow-methods": "GET, OPTIONS",
+            "content-type": "application/json",
+            "via": "1.1 ab5caf6bf2b6f9baee9bc88a44561308.cloudfront.net (CloudFront)",
+            "cache-control": "private, no-cache, no-store, must-revalidate",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-headers": "Accept, Affirm-Device-Fingerprint, Affirm-Platform, Affirm-Public-API-Key, Content-Type, X-Requested-With",
+            "x-amz-cf-id": "i1UFO9d1FSeCmG28WTR86FSjkS9ZBt7WewY0pRa9a0Df8JZdhJTTFg=="
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

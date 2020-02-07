@@ -1,0 +1,62 @@
+{
+  "outcomes": {
+    "2342203989": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "fetch",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "pay.shopify.com",
+            "port": "",
+            "pathname": "/session",
+            "query": {
+              "v": "1"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2342203989",
+          "extra": {}
+        },
+        "duration": 557,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -575
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\"eligible\":false}"
+          },
+          "headers": {
+            "x-dc": "gke",
+            "p3p": "CP=\"Not used\"",
+            "status": "200",
+            "access-control-max-age": "7200",
+            "access-control-allow-methods": "GET, OPTIONS",
+            "server-timing": "processing;dur=4, socket_queue;dur=0.923, edge;dur=4.032, util;dur=0.05",
+            "x-request-id": "abe26006df71ea646d25d3ce70642697",
+            "x-runtime": "0.003403",
+            "x-frame-options": "DENY",
+            "etag": "W/\"9b5179ea2a77fe69b294fbd2ed504eac\"",
+            "vary": "Accept-Encoding, Origin",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload, max-age=31536000; includeSubDomains",
+            "content-type": "application/json; charset=utf-8",
+            "access-control-allow-origin": "https://homesick.com",
+            "access-control-expose-headers": "",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "access-control-allow-credentials": "true"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

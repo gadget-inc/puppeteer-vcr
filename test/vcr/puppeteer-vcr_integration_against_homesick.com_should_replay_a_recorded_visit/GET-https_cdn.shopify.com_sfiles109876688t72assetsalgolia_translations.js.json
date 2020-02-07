@@ -1,0 +1,68 @@
+{
+  "outcomes": {
+    "2829008791": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/t/72/assets/algolia_translations.js",
+            "query": {
+              "7608": ""
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2829008791",
+          "extra": {}
+        },
+        "duration": 163,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -786,
+            "expiresDelta": 31535947214,
+            "lastModifiedDelta": -2571763786
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "(function (algolia) {\n  'use strict';\n\n  algolia.translations = {\n    search: \"Current search\",\n    noCollectionFound: \"No collection found\",\n    allProducts: \"See all products\",\n    matching: \"matching\",\n    sortBy: \"Sort by\",\n    relevance: \"Relevance\",\n    outOf: \"out of\",\n    resultsFound: \"results found\",\n    oneResultFound: \"1 result found\",\n    noResultFound: \"No result found\",\n    addToCart: \"Add to cart\",\n    searchForProduct: \"Search for products\",\n    selectedFilter: \"Selected filters\",\n    clearAll: \"Clear all\",\n    noPageFound: \"No page found\",\n  };\n\n  algolia.translation_helpers = {\n    no_result_for: function (text, render) {\n      return 'No result for query ' + render(text) + '';\n    },\n    in: function (text, render) {\n      return 'in ' + render(text) + 's';\n    },\n\n    try_clear_or_change_input: function (text, render) {\n      var regex = new RegExp(/<\\/a>|<a[a-z \"-=]*>/, 'g');\n      var html_tags = text.match(regex);\n      return 'Try ' + render(html_tags[0]) + ' clearing filters ' + render(html_tags[1]) + ' or ' + render(html_tags[2]) + ' changing your input ' + render(html_tags[3]) + '';\n    },\n    outOf: function (text, render) {\n      return '' + render(text) + ' out of';\n    },\n\n    by: function (text, render) {\n      return 'by ' + render(text) + '';\n    }\n  };\n\n}(algoliaShopify));\n"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/t/72/assets/algolia_translations.js?7608",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-t-72-assets-algolia_translations-js",
+            "status": "200",
+            "x-cache": "HIT, MISS",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "0b2c3cbd77c19db6c8019205df55aeffc80d96c68f7616fdd27d1b4e8c223fe3",
+            "x-served-by": "cache-jfk8122-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.735704,VS0,VE12",
+            "vary": "Accept-Encoding",
+            "content-type": "application/javascript",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/t/72/assets/algolia_translations.js>; rel=\"canonical\"",
+            "x-cache-hits": "1, 0"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,67 @@
+{
+  "outcomes": {
+    "362777079": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/files/refinery_small.png",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "362777079",
+          "extra": {}
+        },
+        "duration": 487,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -524,
+            "expiresDelta": 30252064476,
+            "lastModifiedDelta": -1283935524
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "RIFF\u0006\u0000\u0000WEBPVP8 \u0006\u0000\u0000ð\u001f\u0000\u0001*d\u0000@\u0000>1\u0016C\"!!\u0013z®\\ \u0003\u0004´\tï/ªþ@uh÷\u0017ÖÏÚmLkÚ'ñªIü§þ¹û¥®\u0005éî\u001f?Î¿f8Þ\u0000\u0007ä?Î¿¼~Uòrï£ýÔ÷ó\u001fîÿÿÕÿô7ø°\u0007òoêßñ¾û¬ÿ\u0005ÿ\u000bü\u0007ä_µÿ?æü|û\bþKý\u001fýOö¯Üïñÿþ¬=nþÕ{\u0017þÊØåÅsf\u0012~±¬©Ïôù¶Ï\u0012b\u0017Lì¥;|s&\u001ci¬ø¤íD\u0019»\u001eá`#¥Rut5a\bxô¿äá#&-Èè\\h»tú|ïL:ü_Ã[þWe%\u0013\u000fmQS/â|ûý¢\u0011'X¶\u0010\u0000\u0000þþÝzâÓF]¶zá\u0015R:Á?þ4ïÃ»é»EØø:ÇÉaìzÿ·g¯döNO¾y'gãÀ]ÍGÐHX\u001a3ós¼}z\u0014oHÇazÌ77\u0014¬=ß5êÂþKP\rÍ.¡§dH¸Æ?/óJÁ\u0004raÔ£ÔôF÷\u000b\u0010\u00130-þ²x¥8Ê\u001abküÆOIV¡;ªÂ^²¥â±\f/¬m¾Z¹?\u0007lø!ÀÎíQ=;\u0013u\"ßçÄn¢zô\u0010SÓU,ÈÒR9%\u0013v\u0019§D¤®Û|\b{B\u001e?\u0019EÂ#\u001b>ïúãëlÕvõ°õ¥iÆ¦Kþg\nü¯8D¤fØ\u000eóLTãf,·qÔ\u0015y»ø{JÖ!ñ­YANb\u0001¶%¼TÚñÆþsì¡â\u000fC¿ûøß\n&fä÷ )Ã0«ëÑ\u0010ìl\u001fc9W\u0001\u0010¥ÿ\u001d;ü\u000eá,\u0002öà(lÜ~½\u0007²ÿÆ\u0014³:uô\u0005ñÞ\u0016\u001aéc\rªÞe\u0004¦'WIÔCõô-~ç6{ò½i¤¢å{g\n©aaNl+3Ù8èÑîº\u001dIUlûÎN],\u0013\u0007[þÙé2j\u0013éW©ËÙ f{\f\u0016õt\r\u0012\u0019Ê¶òDD\fê³Î®tÎÔY°éÀ;ÐÓ/Äê!Ò\u0004?\u000fÃ÷§8\"mÀõ¯\u0003Ëzsmð\u0000Üþøîr*ÍÙ9P)@úåE\u0017VKP>G\u000eTåÖbIH]\u001cÍ³\u00158ÍÚaÁëÏIÝ)õnÈÙ¢.ôô&¾Û\f DæQïôó¹ÔN\u000eYØ) ÙÎäÚÏJjN9>zgk)°º«H}Õq\u0016òQp\u0014q Ðð,­\u0014Na\u0010Ã¯j\u001f4íÑ\u0018f\u001bü\u00189ËÚíGì}'#\u001b[\u0003'KgIÿ#-®M6O÷\u0004\u001f)øÖ-ÃÝZv&\u001e\u0003§C¦A1/\u0012~ôÑ{ù$d\u0017W^Ä{\"C\tãÈï\u0001«b\u000fåÉ\u001eÀ\u0004\rL³Ôh¼Gj\"ÓËdt\u0005R^\u001aÆÒËB[­\u001b]\u0006á@e±»ién\n¡\u0017\u001a\"\u001fõ°\u0011\u0004\u0013ÁÉÔo\u0012¶iáëÏÐfÿÒ\u001aÜá\n~ð\t¦îU²IH-\u0001Góñ{«=¦³Óæ|¹h\t¼¹\u001bJYÿi±¦*wòç¯Oçæÿÿ¹ª$»:\u001e÷Jg#\u0004\u0017ócz}8¹j\u000fh¼%Oÿý§è?\u0003\u00036ãýùþ\u001fK=\nWdT(Ö¿½È\u000eOTý!\u0001Q-vû¡æ{*B½fþc?\r©ÆñOüÏûM7¥C'\u0010¼ì$Jn.\"\u0013BHc´oð×G]AaýdE*¥qhHÙBÙ¢¼P«Ý\u0003ö=:\u0006üPâþþO¹gÛùpÿÃ\u001czIX©oCAø4\u001a©ÕAhUà®\u0002ü4ÜÓ0¯¾ §íÛh\"W² N¤>×Âg^YX-öÑRÞCcNê¢5¿mïëS32aÝëëÂB:<b×¶(\u000b|w\u000fAá\u001c\u000fiÄÛÓôî9;Þû6[ÍV¶\u001fÂ\u001c°¬â\u0005rX¨Wk\u0004á]w>ß©¨\\Ñû%ãJð»h\u0012WE\u000eW94\n#p\u000bFI}|Âo\u0011%ëë¤±Úý¬¢Äz<ÆµÌe\u000e¹ª\t´¤:Ø?Sb8²ë\u0001Î·à*H?\tn\u001dÔ$`°,6<Ö^G\u000be&#M\u0012\u000eNZ\u0003)`¬^SÛ·MþfÎC½\u001aëò¡ý\u001býÜo¼\u00159Þ\u0000 \u00066)J\u0016ã²§¢Ù¨Ì5\n7|^\u001aÓ\u0003^Ç10U\u001eºç\u0003ÿ9½O:XK\u0010FkÌ~ÀYÍ×Ø90sm°«%Ê0\nÔä(]^©+\u0002I/&¾'ÂQ,>mÍ!>W¯³\u000e½Ò¡Ã¦\u001eë\u0002ß/\u001f8ÒÑë\u0010~Ø\u0004\u001dð\u001cúæ®'Ë2«ÆpW-#ÅZ\u0014-£Á¬\u0000\u0000\u0000"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/files/refinery_small.png?v=1543443723",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-image": "generated",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-files-refinery-png",
+            "status": "200",
+            "x-cache": "HIT, HIT",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "b1ab82826510ea470b622508e97c52c97694405d10e413a58307aa81e21f0e2d",
+            "x-served-by": "cache-jfk8126-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.145122,VS0,VE0",
+            "vary": "Accept",
+            "content-type": "image/webp",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/files/refinery_small.png>; rel=\"canonical\"",
+            "x-cache-hits": "1, 1"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

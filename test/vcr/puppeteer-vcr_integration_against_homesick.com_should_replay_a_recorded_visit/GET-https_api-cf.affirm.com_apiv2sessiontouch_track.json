@@ -1,0 +1,60 @@
+{
+  "outcomes": {
+    "979828058": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "fetch",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "api-cf.affirm.com",
+            "port": "",
+            "pathname": "/api/v2/session/touch_track",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "979828058",
+          "extra": {}
+        },
+        "duration": 529,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -1281
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\n  \"id\": \"5842ece8-7827-4211-8846-c87a607ef3dd\"\n}"
+          },
+          "headers": {
+            "vary": "Accept-Encoding, Origin",
+            "x-amz-cf-pop": "YTO50-C2",
+            "x-cache": "Miss from cloudfront",
+            "status": "200",
+            "strict-transport-security": "max-age=86400",
+            "x-affirm-cache-status": "MISS",
+            "access-control-allow-origin": "https://homesick.com",
+            "x-affirm-request-id": "5037413f-984c-4728-c7fd-b9169afd179d",
+            "server": "openresty",
+            "access-control-max-age": "86400",
+            "access-control-allow-methods": "GET, OPTIONS",
+            "content-type": "application/json",
+            "via": "1.1 5fe23063f661c9ea152510da941c0226.cloudfront.net (CloudFront)",
+            "cache-control": "private, no-cache, no-store, must-revalidate",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-headers": "Accept, Content-Type, X-Requested-With",
+            "x-amz-cf-id": "aBtqrmgmxT9uUG8NdU2yRy_4VjpRmLT4tPyMrmmiWf60rxIPgnMhvQ=="
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

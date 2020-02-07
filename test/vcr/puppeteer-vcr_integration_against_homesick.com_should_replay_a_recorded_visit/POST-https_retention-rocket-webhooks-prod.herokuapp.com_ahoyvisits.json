@@ -1,0 +1,64 @@
+{
+  "outcomes": {
+    "1047560528": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "POST",
+          "body": "<NORMALIZED>",
+          "isNavigationRequest": false,
+          "resourceType": "xhr",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "retention-rocket-webhooks-prod.herokuapp.com",
+            "port": "",
+            "pathname": "/ahoy/visits",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "1047560528",
+          "extra": {}
+        },
+        "duration": 395,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -814
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "{\"visit_token\":\"6b821f5c-4e7c-4193-9bd5-867a1ed58f1c\",\"visitor_token\":\"57772ae8-e38c-4be9-b5cb-e898e5a592ab\",\"visit_id\":\"6b821f5c-4e7c-4193-9bd5-867a1ed58f1c\",\"visitor_id\":\"57772ae8-e38c-4be9-b5cb-e898e5a592ab\"}"
+          },
+          "headers": {
+            "x-content-type-options": "nosniff",
+            "x-permitted-cross-domain-policies": "none",
+            "access-control-allow-origin": "https://homesick.com",
+            "transfer-encoding": "chunked",
+            "p3p": "CP=\"Not used\"",
+            "access-control-max-age": "1728000",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "47e262ed-eb64-4b9e-b77b-b9b8316ea75e",
+            "x-runtime": "0.027324",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "Cowboy",
+            "etag": "W/\"ba79ee0c723389955dab7b9f89a0db09\"",
+            "x-download-options": "noopen",
+            "vary": "Accept-Encoding, Origin",
+            "access-control-allow-methods": "GET, POST, OPTIONS",
+            "content-type": "application/json; charset=utf-8",
+            "via": "1.1 vegur",
+            "access-control-expose-headers": "",
+            "cache-control": "max-age=0, private, must-revalidate",
+            "access-control-allow-credentials": "true"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

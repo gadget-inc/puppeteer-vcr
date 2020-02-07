@@ -1,0 +1,54 @@
+{
+  "outcomes": {
+    "2615732817": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "sumo-shopify.com",
+            "port": "",
+            "pathname": "/apps/shopify/sumome-plugin/js/sumome.js",
+            "query": {
+              "login": "0c91e047466c873e744b2532dde05e337ee61f61",
+              "shop": "scroll-commerce.myshopify.com",
+              "shopId": "9876688",
+              "siteID": "cc9e6434715fd00fb1461c22188ecfaf5b2a9871c0abd7005e543502c009183f"
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2615732817",
+          "extra": {}
+        },
+        "duration": 472,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -274,
+            "lastModifiedDelta": -3022027274
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "(function(){\r\n  var scripts=document.getElementsByTagName(\"script\");\r\n  for(var i =0; i < scripts.length; i++) {\r\n      if(scripts[i].src.search(\"sumome.js\")>0) {\r\n          var myTag=scripts[i];\r\n          break;\r\n      }\r\n  }\r\n\r\n  var src= myTag.src;\r\n  var urlVar=unescape(src).split(\"siteID=\")[1].split(\"&\")[0];\r\n\r\n  var fullURL=document.location.href;\r\n\r\n  if (fullURL.indexOf('design_theme_id')>-1 && fullURL.indexOf('frame_token')>-1) { //admin\r\n\r\n  } else { //frontend store\r\n    $(\"body\").append(\"<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='\"+urlVar+\"';j.dataset.sumoPlatform='shopify';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>\");\r\n  }\r\n}());\r\n\r\n\r\n\r\n\r\n"
+          },
+          "headers": {
+            "server": "nginx",
+            "etag": "\"5e0f680e-318\"",
+            "content-type": "application/javascript",
+            "connection": "keep-alive",
+            "accept-ranges": "bytes"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

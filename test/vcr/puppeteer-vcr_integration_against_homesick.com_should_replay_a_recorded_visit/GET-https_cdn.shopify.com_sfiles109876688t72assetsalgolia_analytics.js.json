@@ -1,0 +1,68 @@
+{
+  "outcomes": {
+    "2879289102": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "script",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/t/72/assets/algolia_analytics.js",
+            "query": {
+              "7608": ""
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "2879289102",
+          "extra": {}
+        },
+        "duration": 131,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -752,
+            "expiresDelta": 31535947248,
+            "lastModifiedDelta": -2571763752
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "(function (algolia) {\n  'use strict';\n\n  var enabled = algolia.config.analytics_enabled;\n  if (!enabled) return;\n\n  !function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e.aa=e.aa||function(){(e.aa.queue=e.aa.queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],i.async=1,i.src=\"https://cdn.jsdelivr.net/npm/search-insights@0.0.14\",c.parentNode.insertBefore(i,c)}(window,document,\"script\",0,\"aa\");\n\n  aa('init', {\n    applicationID: algolia.config.app_id,\n    apiKey: algolia.config.search_api_key\n  })\n\n  algolia.clickTracker = function (e) {\n    window.aa('click', {\n      objectID: e.target.getAttribute('data-algolia-objectid'),\n      position: parseInt(e.target.getAttribute('data-algolia-position')),\n      queryID: e.target.getAttribute('data-algolia-queryid')\n    })\n  }\n\n}(algoliaShopify));"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/t/72/assets/algolia_analytics.js?7608",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-t-72-assets-algolia_analytics-js",
+            "status": "200",
+            "x-cache": "HIT, MISS",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "f4c43ae6f7261b7d1c5e143260fbd0e59f316ff212aa97b2a1cedb8fe7a99061",
+            "x-served-by": "cache-jfk8148-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.735781,VS0,VE11",
+            "vary": "Accept-Encoding",
+            "content-type": "application/javascript",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/t/72/assets/algolia_analytics.js>; rel=\"canonical\"",
+            "x-cache-hits": "5, 0"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,67 @@
+{
+  "outcomes": {
+    "2637819117": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/files/gulamour_small.png",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "2637819117",
+          "extra": {}
+        },
+        "duration": 488,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -525,
+            "expiresDelta": 30252064475,
+            "lastModifiedDelta": -1283934525
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "RIFF\u0010\u0005\u0000\u0000WEBPVP8 \u0004\u0005\u0000\u0000Ð\u001a\u0000\u0001*b\u0000\u0013\u0000>1\u0016C\"!!\u0015¼Ìp \u0003\u0004´\tî?~\u001b~Õv«w#Õï0\u000et!?Zþøµù©Âè+üSú¿â§æ\u0016qÍ?»Gý¼òYý¯ñïî\u001e¬\u001e\u0000Ô\u0000þ/üÿüßö/È\u000fçÿ»þázµü«ú¯ú¿í¸_Ù¾Á?,ÿ\u0005ýã÷Oüÿÿýk¾·i=?OÂf¤oP\u001d\"·%ôù»þÀk¥¦u÷@TÇ\u0018\u000f\u0010öâT\u0019d\u0012í)5h\füWÊ\"ÜOÐZjÇ\u001c§má»Éß\u0018ÉK]Í\u0004Ã)Þ3~Ië\u0000þÿ¾A=D[À59Dg\u000f·ÿvFñ½\u0007aÌ°}ÝÄ\u0017ãÀÒ¾_-\u000bk¤Ôaê\u0015½íP¨®\u00060áicøåu\u001eeV\u001bITZ$þÚ7A5Ñ2÷5_rîõ©ÀäÝbù\u001eÿÖP§\u0011ÎÿôQµyÍ}\"6ÁÅ³Ãñ!\u0016\tÊ\u000eÖ{Ñ¬±´^0§M\u0004à5Vÿ:KÌBá!P[6ûÖ\u0000rùp·ÜÄ\u0007<b?*wGöp5Íwoå\u0011\u001d$oÌÿ_Å\b\fDýM%y\u001a\u0000WiÝ\u0010,[%{¢Ç¯ïþ0óÅ¿³¿A_¬2¡*lÿ¡OJÉº×Sxþ;ùÕê©\u0002¹b\u0007ÝÁ«Ïÿm\u001e'JFJåÿþ:íB\u0013õ\u0018+´Ó6EÓ@ù¤t1)e²ñ±G¿\u0001ÐÎ\u0006æò\u0003cÿ­äìk1}½@~Fåô¢lÐµf\u0015q¯=ðf»gO_1Þ\u0001`p³¯»z­¾µVö|\u0015U¿fJ[÷ó/í­=¿gÉÄäRäa\u0002Ö?ÿ8¬\nÅC¾Ï ¾\u000ec÷{XDï×\tÍÞÁ9\u00015H@Ð\u0002'z©WÝ6KsÁP(\u0000ºö\nc$)á\u0013Õ\"¨Òüöi½ÖÐâ6óWûi\u0001\\Ë\u0014\bÄF»iøòÕ\u0002\u001fÖo´]Ë]7Rº5ÜjÊ\u001aê¶ø±­5r@V³&Ò£\u0005'è»þ|5P`oñn×t½gül¥Ò«;ÿ[äùÀq*ªM·\\+h©ÖÓÚ³Ëa×æßÇ¢#\u0016o\ráð®ÀÂÌEðÁ¦û\u001c\"Ma\u0014Î7ÃgÎJ.®Ö¿wsf8\u000b\u0017.{zò½o¦ºÅö\u001a¤c#¥`\u0003eì\u0011Î2\bD¾\u001a¿yZýâVpA9År»~@\u00181\u000bm\t»ÔÆ·µb¸o\u0018$\tù»Ý¢TOþÀÏæ7ÿ¼\u0001ü`\u0001+â×sûw8\u0005Xÿ3©¬û\u001ee¹9Gú\u0018±J_ê¥@Õ)\n[¡\u0001°²½ÇÆ@q¯­¯g+§\u0004ÐVï;ÔÒð. ­÷SÃ³â[8ó\u0015]>H¦ren\u0018¯°®\u001b#!Ï6\u0015è2í\u001e§Rih×êÒá!\u0016I@ÉÒI«æ'þX¹#6µ¡cC\u001b¬\u0015o4ý§u¥O¹òÐX\u0004Ôï¿\u001f8õó\u0004\n\u0010Ç\r*8bËMd\t³¼V\u0011à¾ !}ºq}$°\u0006µú\u001al;ñ'!·\u0015uñ®øá|tºÛ;¢QòB\u000eÅZ\nÇzÞÍ\rÐùÿý\u0004~\u0013ÿp]ì$J\u001eË^D¸\u001a\u0018°Ð¿Ù¸\u0019\u0011¯¸8`ûøo\u000f\u00079¥¯êx\u001ctHÛec V÷ï\u001f9z²°eõÔ¡µóÒ\u0003¢m\u001fÙ\u0001p¹ãðÜYH\tB+Bx8Øk\u0014KBÚKÿþd<c¼µqñ\u000bE4OÃÐ5I\u001fÞf\u0011IB&¹Õy\u000f>85¼äVwÒçR+\u00000s¨zp\u0004)\f¯^a\f\u0000\u0000"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/files/gulamour_small.png?v=1543443743",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-image": "generated",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-files-gulamour-png",
+            "status": "200",
+            "x-cache": "HIT, HIT",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "1014b055b1be81c2a78f9427c3331e2b8655c97e56c1772948a67859b092be9d",
+            "x-served-by": "cache-jfk8135-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.145105,VS0,VE0",
+            "vary": "Accept",
+            "content-type": "image/webp",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/files/gulamour_small.png>; rel=\"canonical\"",
+            "x-cache-hits": "1, 1"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

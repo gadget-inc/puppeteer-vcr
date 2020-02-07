@@ -1,0 +1,48 @@
+{
+  "outcomes": {
+    "416120623": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "consent.linksynergy.com",
+            "port": "",
+            "pathname": "/consent/v1/p",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "416120623",
+          "extra": {}
+        },
+        "duration": 216,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -369
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "GIF89a\u0001\u0000\u0001\u0000\u0000\u0000\u0000!ù\u0004\u0001\n\u0000\u0001\u0000,\u0000\u0000\u0000\u0000\u0001\u0000\u0001\u0000\u0000\u0002\u0002L\u0001\u0000;"
+          },
+          "headers": {
+            "status": "200",
+            "via": "1.1 google",
+            "p3p": "CP=\"NOI BUS NID DSP COR\"",
+            "alt-svc": "clear",
+            "content-type": "image/gif"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

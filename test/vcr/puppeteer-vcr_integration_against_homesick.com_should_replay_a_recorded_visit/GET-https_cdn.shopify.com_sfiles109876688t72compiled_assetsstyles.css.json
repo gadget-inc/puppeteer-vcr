@@ -1,0 +1,68 @@
+{
+  "outcomes": {
+    "1341584535": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "stylesheet",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "cdn.shopify.com",
+            "port": "",
+            "pathname": "/s/files/1/0987/6688/t/72/compiled_assets/styles.css",
+            "query": {
+              "7608": ""
+            }
+          },
+          "keyCount": 1,
+          "keyHash": "1341584535",
+          "extra": {}
+        },
+        "duration": 148,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "dateDelta": -752,
+            "expiresDelta": 31535959248,
+            "lastModifiedDelta": -2571763752
+          },
+          "status": 200,
+          "body": {
+            "encoding": "utf-8",
+            "content": "\n\n\n\n\n\n\n\n\n\n\n"
+          },
+          "headers": {
+            "x-url": "/s/files/1/0987/6688/t/72/compiled_assets/styles.css?7608",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "x-content-type-options": "nosniff",
+            "x-cdn": "Fastly, http2",
+            "x-dc": "gke",
+            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-t-72-compiled_assets-styles-css",
+            "status": "200",
+            "x-cache": "HIT, MISS",
+            "x-xss-protection": "1; mode=block",
+            "x-request-id": "65bfa011ef0e28c789bb17d54c3f22aad3f3379b9d4d1b23a502522676a14d78",
+            "x-served-by": "cache-jfk8132-JFK, cache-yyz4542-YYZ",
+            "server": "cache-yyz4542-YYZ",
+            "x-timer": "S1581090007.735443,VS0,VE12",
+            "vary": "Accept-Encoding",
+            "content-type": "text/css",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31557600",
+            "accept-ranges": "bytes",
+            "timing-allow-origin": "*",
+            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/t/72/compiled_assets/styles.css>; rel=\"canonical\"",
+            "x-cache-hits": "1, 0"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}

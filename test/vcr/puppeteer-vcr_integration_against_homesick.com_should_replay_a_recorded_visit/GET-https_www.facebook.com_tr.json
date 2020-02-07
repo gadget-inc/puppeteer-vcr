@@ -1,0 +1,50 @@
+{
+  "outcomes": {
+    "3580952860": [
+      null,
+      {
+        "type": "response",
+        "key": {
+          "method": "GET",
+          "body": null,
+          "isNavigationRequest": false,
+          "resourceType": "image",
+          "url": {
+            "protocol": "https:",
+            "username": "",
+            "password": "",
+            "hostname": "www.facebook.com",
+            "port": "",
+            "pathname": "/tr/",
+            "query": {}
+          },
+          "keyCount": 1,
+          "keyHash": "3580952860",
+          "extra": {}
+        },
+        "duration": 158,
+        "response": {
+          "setCookies": [],
+          "cacheConfig": {
+            "expiresDelta": -699,
+            "lastModifiedDelta": -225042007699
+          },
+          "status": 200,
+          "body": {
+            "encoding": "binary",
+            "content": "GIF89a\u0001\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000!ù\u0004\u0001\u0000\u0000\u0000\u0000,\u0000\u0000\u0000\u0000\u0001\u0000\u0001\u0000\u0000\u0002\u0002D\u0001\u0000;\n"
+          },
+          "headers": {
+            "server": "proxygen-bolt",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-type": "image/gif",
+            "status": "200",
+            "cache-control": "no-cache, must-revalidate, max-age=0",
+            "alt-svc": "h3-24=\":443\"; ma=3600"
+          }
+        }
+      }
+    ]
+  },
+  "version": 1
+}
