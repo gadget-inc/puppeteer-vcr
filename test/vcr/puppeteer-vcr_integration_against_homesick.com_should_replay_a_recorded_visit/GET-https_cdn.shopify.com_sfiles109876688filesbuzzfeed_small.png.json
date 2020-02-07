@@ -1,67 +1,3 @@
-{
-  "outcomes": {
-    "3746166716": [
-      null,
-      {
-        "type": "response",
-        "key": {
-          "method": "GET",
-          "body": null,
-          "isNavigationRequest": false,
-          "resourceType": "image",
-          "url": {
-            "protocol": "https:",
-            "username": "",
-            "password": "",
-            "hostname": "cdn.shopify.com",
-            "port": "",
-            "pathname": "/s/files/1/0987/6688/files/buzzfeed_small.png",
-            "query": {}
-          },
-          "keyCount": 1,
-          "keyHash": "3746166716",
-          "extra": {}
-        },
-        "duration": 489,
-        "response": {
-          "setCookies": [],
-          "cacheConfig": {
-            "dateDelta": -526,
-            "expiresDelta": 30252062474,
-            "lastModifiedDelta": -1283937526
-          },
-          "status": 200,
-          "body": {
-            "encoding": "binary",
-            "content": "RIFFp\u0006\u0000\u0000WEBPVP8 d\u0006\u0000\u0000ð!\u0000\u0001*d\u0000\u0012\u0000>1\u0012B¢!\u000boV@\u0010\u0001[\u0000'NP_~\u0000râL®Íù\u0011ì1M~i÷\u0007ö£ünZÏ\u001eÿlüÿaóãùoù/`\u001e`\u001fè?ø{ó\u0001úþßüG²\u0007ú?ù\u001eà=\u0000?PúË}\u0010]=,¿n>\u0010¿j¿fýë]9ü\\ó§Ã_ýzÊ&õÇ\u000fÉ\u001eyý.þ7zþkùYÂÇÿÿsüÀþëäWÆYþwÒïí}æ> \u001fÿÒýÇ|?ÿUýÏÎ'äÿÜÿçû)þÿ\u001bû·iÏD\u000fÙáL¤\u0007%sÅýøß÷¨\rÌÖ\u001b¶\u0000èQÀ2[¹´\u0010\u001a¾\"\u0003ö\u0017'rryU\u000fìyüÔ]L\u001fà¯À©MÈÈô\"dþnÉêë ´\u001eK£Å\u0013ð\u0000þéGð\u0006c½¢6\u001e\u001büßøøyor=8\u0001¯ÓöAIõ\u0001\"Âyªà»\u0014ê#A4¨:je.û§XOå\u0015ï¡ÄØ\"¥o#Ôîíÿôb?¹\\BZ^ù\u000f\u000fÿiþµ¤Ã¿+KÕû0Þ¶ø\u000fÿØRå\u0007æ©\u0016×X¹\\\u0003fr$@\\ñ\u0002`ê(üDJnNqöÍ\u0002òß¤ÞyOÿ/ë\u001b7'¶¥Þ»Õ!?\u0013øÐ0ßú8ÿÌ\u0007g<\u0001«\u0004íT»íí¥hç 7\u0003Zù\u0013\n[\tÚ}\u0005ð¦\u001bSºÿq·\u0006¿*ÿ&\u0016oµì¬zìÕZM\u0007ÉÊõ§Ã)¿ÿlVJ¸¿üÔÎÌx[±#G»÷êRPA\u00110¶dÇªÌ®ÔKOløÂM¶Í\u0018éxòÓ`é)Ð·õP\u001a\u0010åt(ÔyÏÈ¢(.WÇ\r.`w~(Ee[©ÌýVæì\u0011G\u0000-\"¥4\u0000å¼ÍRZ(\u001fÜ\u001fÿæâ\u0013 É\u000fÉ\u001bèÁ\\¥YBÄò[Ô;6È{ÇOív½5MN\u0001úÄí7ãó¯ÍCíßOQòW\u0016G@ðEç: .êZ\u001b¡Øeþ ÷\u0007¥\u0006Þ\u00154±Ú¸¿ÒË\f\u000eßps\u0001üGy\u001e©¾*Af£²Yëj\u0001wz,*w_37f|f$}ÜÆE\u0002iýÜWx­xÅ]Òx^i¢Ûøi\u0000Ùj¸­\u0004¤ì¹ýãø\u0013Óö3ddµà5GEEÓ7z(á»0d\u000fÅòx¼\u0015¼\u0012\rÊ×O\u001bV=ÕüUL\\Ðd¬\u0018n³\bÞ\u0000ùWã~òoÿ\u001c?«ç!î©\u0007\tjVî4\u0003Æ9wî;xÑ4ã ïM]4vBJ¦\u000fã³<þÜ¤[FõÐ^©õSÚWmN.ïYó\nRGÛ hGñÏõç!F\u001c^ðRq{þ×82p\u0010tÚ5Ñw&ÐmËí~GF7\u0006Ç¦¾\u000fÆó_\u0007t9F¯(vç¥þçî¸*qüO§PKK9_GCI¼tV+92z8í 3l6¶ýº\u001a\u001av\u0014\u000f \u000f4`5Û\u001c\u0019ø`{6ÌFýµð~¥ì\u001e~\"\u0018ë\u0015dÏß®+WB5óN­§]ÚnY!\u001bð#[ßb÷Ø&Zä//ÞÜå`£Ü6±\u0004\u001fÞQÕ6q|¶õð6\r\u0014ÀÈµå\u000e¾5ù08õ\u001cJ)ë°m\u001e§Íô¼×C\u0007Þû\rÕÏê:w5¿òò)øÍà¸©'Oë´m\u0019â\u000e{õluf<½h\u0010%¦ùhÆ{H\u0003\u0019Hÿí¡Ç¦RIßùâ\u001cÂ\u001e\u0004·?\r@ª3ý¥Ñ^W>ÿßñwý\r\u0005ôÌ\u0001Äéf@çht°\u0005Xr¥ó\u001fâæ°(W~Ü´Òªsi\u0000¹]Ò/\u0016\fèÙ\u001e3¬Ãc6Õ?½\fw¬¦½Ñ\u0004\u001cI°\r.1æxBRÎÆ!\r}ýSý\u001b\u0018æÓÒáÔ(;ñ×hG|\u0015üx§Üçæ\u0016P4%a z¶Mu¤z\"iáUOà@ôÍãB\u0005o\u0014[Øð½82Ø×\u0001chg\u000b¼ÿDNÉØ³èf~MïE\u001dS«ÍÁÖ\f±¾H6$H¯îÕW¦{=x\rfc³¶\u0017\u0016)çË`Pqý\b×Ô,tgÍ¼·që`m\u0005hçqÉBCC\u0000ì¿Ý3\u0019òáèÝJÚK|E´Ó5·zè=å±\u0019ôlH¹nÈ(¡\\R¿umðü)®bÎçÛ[¹¯Þd Í­^vÚJÏá¸åÔë#YÍÛ^á¯&ñ:> \r<ØÅv\f\t§ÆCÐñôg\u0010¹\u0016ÂígÏg34bA·8ð½åßÀÕ\u0006Ökºà®û\u0003ú8­Qdçô`\u001e/BÃ \u0000\u0000\u0000"
-          },
-          "headers": {
-            "x-url": "/s/files/1/0987/6688/files/buzzfeed_small.png?v=1543443848",
-            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
-            "x-content-type-options": "nosniff",
-            "x-image": "generated",
-            "x-cdn": "Fastly, http2",
-            "x-dc": "gke",
-            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-files-buzzfeed-png",
-            "status": "200",
-            "x-cache": "HIT, HIT",
-            "x-xss-protection": "1; mode=block",
-            "x-request-id": "483415d689ee31f067e25518aa1e48df2d6aa6fba1305b536e86a2b20c37bafb",
-            "x-served-by": "cache-jfk8122-JFK, cache-yyz4542-YYZ",
-            "server": "cache-yyz4542-YYZ",
-            "x-timer": "S1581090007.145084,VS0,VE0",
-            "vary": "Accept",
-            "content-type": "image/webp",
-            "access-control-allow-origin": "*",
-            "cache-control": "public, max-age=31557600",
-            "accept-ranges": "bytes",
-            "timing-allow-origin": "*",
-            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/files/buzzfeed_small.png>; rel=\"canonical\"",
-            "x-cache-hits": "1, 1"
-          }
-        }
-      }
-    ]
-  },
-  "version": 1
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5eaf06eae5a5999fef0bf68c9c446ac569942310f04b6804c05d33405557946
+size 5634

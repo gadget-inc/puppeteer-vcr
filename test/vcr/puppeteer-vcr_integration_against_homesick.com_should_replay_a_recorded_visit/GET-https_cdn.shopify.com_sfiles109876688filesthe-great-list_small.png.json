@@ -1,67 +1,3 @@
-{
-  "outcomes": {
-    "921677613": [
-      null,
-      {
-        "type": "response",
-        "key": {
-          "method": "GET",
-          "body": null,
-          "isNavigationRequest": false,
-          "resourceType": "image",
-          "url": {
-            "protocol": "https:",
-            "username": "",
-            "password": "",
-            "hostname": "cdn.shopify.com",
-            "port": "",
-            "pathname": "/s/files/1/0987/6688/files/the-great-list_small.png",
-            "query": {}
-          },
-          "keyCount": 1,
-          "keyHash": "921677613",
-          "extra": {}
-        },
-        "duration": 486,
-        "response": {
-          "setCookies": [],
-          "cacheConfig": {
-            "dateDelta": -528,
-            "expiresDelta": 30253524472,
-            "lastModifiedDelta": -1282474528
-          },
-          "status": 200,
-          "body": {
-            "encoding": "binary",
-            "content": "RIFF\u000e\u0004\u0000\u0000WEBPVP8 \u0002\u0004\u0000\u0000ð\u0016\u0000\u0001*d\u00002\u0000>1\u0016C¢!!\u0012îe8 \u0003\u0004´\tî?®óáøCÙ\f\u001fqüü÷cúnë_í\u001f\u001c\u0001<[ùGú¶O8ÿã½\u0000ùUô-ÿ\u0011èx5\u0000?\\ÿsýögå\u000bø?øßâÿ\u0018ý©üÝÿ\u001bü7À\u001fòçßí?¸þéw¥ýöRý*Q\u0006meJRÿü\u000126ªÃb\"àD5å(\u0015ïðÂ\u0006ÉÈ\u001fÓ6ì®ù`J(wV\f\u001d\fËU\u001aÄà\u001bûÔ(àn²C.ÖÐáÛ\u0000þþÝx¹ëÑ6\u0017 %¿\u000eâªe¼c;Q\u000b¬Ü\u0000ýÃætÄ½õüºRÇ:/ÿàÅë\u001c3¯ÿ¢d/£ÞzX\t\u0017\u001dÍZbÓCu6º,eøñeÞÀC\u0016»:Q\u000fÂodü¥ô\u0004Ö=rÊäÀ\f\"oæ{tøß\u0006Tm%WÕÕÀ­4@\u0017ðoº!J©]Vá\n\u0014\u0002m\u0017IoäÇÄ±#5¼1öþn>Ch\u000b8iÁI@ëy=rôkU¼ñý÷ÈµeM\u001dm10»Ãj4wÀrîM õ¬\u000fâUµ ³;q\u0011ê{K\u000fÖÅ=¿Uæ½h½q¦CIóC,:Ôy\u0000:ÍÐG¦\nlöÿé:jä!{\u0014@ÔVÑºyIºY¥*ÿó0Pt\u0010\u0017¤}YiÂpè×Þ\u0010\r¿âÃ¬¹Ù)Í¿ØllPwµ'vç~{ÍA\u001fæÏQFÁ»\u001bzÉï°µ}2Rõò{ÃPw9\u001d\u0017Ñq\u0013u<§\u0006ãNÊ(ÇDÏ)¨ôÆÂ\u0001\u001f&h?ó\u000eËqTø\u0015ktwtã>\u0015ê(²ðyiíh\u001e'ä`\u0017áëjÿ\u0001iD±Ý\u0018a\u001f¡E&íg@7GgÔ(DA\f×?´\u0004\u0010 Fµ³´¸LÊ\u0013¶=K5à\u00197N/AUxC¶Î\"[\fÔxA\u0011ª\u0005H.\u000eÂ¤°\u0011æëbÓéc\u0016[ÖU\bK\u001cØù\u001aX\u0000\u0017ºçÖ÷c\u001e'FÖ\u001aìé\u0015Å|\u0005\u0013N!>ÇÁ¢¥L#U?ïÀ\u0012ãxû¸\u0002²)ÊIEwÿZ7d0ä-M\u000b»¡´d9õ \u0002Ü\u0013\fe)\u0018¬Ì?¼­»1DóÌesÖï\u0004\u0003\"ÐQÛC%ä\b×o\rV8E4(¶¶òË8ßø¶L9rD«ðÖè\u0017H½Î\u0001'©ðÆFÔþ\u0005È÷VxìÆ%ðúÖþ\u0015\u001e\u0018x4»¸y!\u000fÅ³/¾WÁ\txñ\u001fjY\u0000|\u000fÿp¤öÐ»°®Hú\u0014çÛÇ%«\ftëf\u0005Gý`I2g÷[:À>mJ%{4w+×é?\u001a¥\u0004$*h\bï×b+Ù\u000b\u001aG\u001cäPm\n°®âÅ*\u0001Ø\nÜöKwÐ6à7bnô ÌÔò$\u001d\u0016\u001c|<0\u001a\rQ¯¡µF2OÙ²åe\u0012¢ »¬\u0000\u0000\u0000\u0000\u0000"
-          },
-          "headers": {
-            "x-url": "/s/files/1/0987/6688/files/the-great-list_small.png?v=1543443890",
-            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
-            "x-content-type-options": "nosniff",
-            "x-image": "generated",
-            "x-cdn": "Fastly, http2",
-            "x-dc": "gke",
-            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-files-the-great-list-png",
-            "status": "200",
-            "x-cache": "HIT, HIT",
-            "x-xss-protection": "1; mode=block",
-            "x-request-id": "7c7d2b9f4ab638d839648ab274190cbb037b76050ece7b81eb587ad42e50a76c",
-            "x-served-by": "cache-jfk8123-JFK, cache-yyz4542-YYZ",
-            "server": "cache-yyz4542-YYZ",
-            "x-timer": "S1581090007.145080,VS0,VE0",
-            "vary": "Accept",
-            "content-type": "image/webp",
-            "access-control-allow-origin": "*",
-            "cache-control": "public, max-age=31557600",
-            "accept-ranges": "bytes",
-            "timing-allow-origin": "*",
-            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/files/the-great-list_small.png>; rel=\"canonical\"",
-            "x-cache-hits": "1, 1"
-          }
-        }
-      }
-    ]
-  },
-  "version": 1
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:abd12b7e90b3011fb3b4601a3a45ff586604c5e369b27a5b8e484c71d4fd8864
+size 4487

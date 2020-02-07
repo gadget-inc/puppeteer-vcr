@@ -1,67 +1,3 @@
-{
-  "outcomes": {
-    "1604321559": [
-      null,
-      {
-        "type": "response",
-        "key": {
-          "method": "GET",
-          "body": null,
-          "isNavigationRequest": false,
-          "resourceType": "image",
-          "url": {
-            "protocol": "https:",
-            "username": "",
-            "password": "",
-            "hostname": "cdn.shopify.com",
-            "port": "",
-            "pathname": "/s/files/1/0987/6688/files/oprah_small.png",
-            "query": {}
-          },
-          "keyCount": 1,
-          "keyHash": "1604321559",
-          "extra": {}
-        },
-        "duration": 488,
-        "response": {
-          "setCookies": [],
-          "cacheConfig": {
-            "dateDelta": -525,
-            "expiresDelta": 30252062475,
-            "lastModifiedDelta": -1283937525
-          },
-          "status": 200,
-          "body": {
-            "encoding": "binary",
-            "content": "RIFF¸\t\u0000\u0000WEBPVP8 ¬\t\u0000\u0000ð,\u0000\u0001*P\u0000d\u0000>1\u0014B¢!!\u0015\nî| \u0003\u0004 \fÌÔ\u0017ñÝ[\u001fg¶~*þLü¶Ù?É~\u0011â\u0016¥<ðysü\u001fè\u0007Y?Ï\u001eÀß§¾q <Ày\\~Ç{ô\u0000þíý'¬WÐ\u0003öÓköàÓûüÿL\fÄ\u000eÕ?³tfùÖÍ\u0002ýwû?õÙ/Ë¾s}Cú~1üû/åGæ\u0007\u001dÐ\u0003ü×ú/ú\u001fìº\u001eh~\u0000{õ«û_ä\u0007Â\u000fæ¿â¿3¿°ú xP\u0003øÿô¿ôá¿\u001e¾3»þÝùí¯óïð¿Èü\u0003)þ£þû§î×øÿÿþ#h}?`Ð\n\røÒ\n³\u0007\u0002hNÊÀ¶=h\nú£\u001d»vä\u001f²P´\u0012¼ÈÔÏÊ·c\u0014\u0007Yý\u001eüD¦ÿc­f\u00004'Üs\u0015ª<\u0014á\u001c¾h,¯«v2[/k^¯6\u0002»äÝlÇuy\u001d\u001bÑ7FzKq\u00186î aÃ/¬O~ðä\u0012tÀt&Îâ\u0014&!º\rÈ\t*~¤Û÷SG÷¹®\f\u0006\u0000þó_ïÐz¶NnªâùêýW\u0014)nÔr\u001dÛ&H^Ø\u0013ð¯÷ÕC¥.Wéró\u000bøÁ\u0016 \u0000Í\u0012¶;\u0003Ái$á\u0016¹¦n\r¿]ü7>¶Ì]TþaÄ>\u001a6ýcÑ«è¯¢m²Äy°¦\\¯\u0018ììÆ­>æÁU\u0013·Ù&gó\u0001&vRåÓ^ü3Ð±üÏ\u0004`½Ö\u0007+Thsò»ßÿÃÂé\tàK@\r19bk\u0007Hu`\u0012>hýßmÙ®\u000bL«\u000e\b<{ÊôÅ«iÓ\u0015\tºCÂú[Ôø\u000f9ï§|®P)aÿì3Pº­ã\u0004X£ã|ª¿q³\u0005N\u0007³ÉRá\u0011·«ã\u0010\tm3É\u0005v_£q(\u0019\u001fæ¤§ìê¨Uq@.lNÌ³'Æ\u0013Ëõ<w)w*úª¶\t¨r\u0012öC´7\u0018¶æôJÀ\u0015%9ÙD¹ ÕKË\u001cÛñü\u0014¸pº\b BÏOZæ\u0000å]<¯\u0015ÌÌwtÌ3=ÄD\u001bô =¦ÐCU÷\u0013êcrÄU \u000e-þ\to<7e\u0014lë±0ÐN#\u000e\u001f­\u0006cûâýØ¾Ð\b0\u0012ï\u0006ãj©+{KÙ\u0005ôtZÖÂ±\u0010tösÇÆ\u001bUA¼ï¾Ybb(!îã¹{\rÇ\u0000Â\u0014û¹\u001c$ÅÄ*n¶È\f\u0004\u001aý°Ù;Îû,ë\n÷\\l9\u0004Ç h)²£`\u0000\u0006 \u0019ðT\u0004ß¾öâkæIÈ¦àM\u0015©Ë­'ð¿\u0011~¤\u001dð¬QlÀ\u001e64Ì(ÿ}l¹KÚuÐÁæOÉ×\u001e®Wìõþ;Tä¸\\yzG¹ª;H1\u001f3ñ)L\u000b* ¹\u0018ô;øâ\u0014O\u0014k\u0017ÿ¤bÓ©cõ,È½Lðâµé\r;¯A6oµã\u001c×\u000eµ¤AÈ<XÒ\u001dËÐpnð\u0010\u0000ïCr2Ú¤@Ñ\fÞe#ç8XBMÄ[¤·±\t<ý\u000eÀ%\u0016 \u0006$©úh8ÇMèérYHGF®K)èV©\u0019\u001b+%~\u001d\\§\u001eö\bT6\u000f¢U\u0013øØ6ÓØèñõelàK9ÙÅFºeYO;\u0003u.Ê²ñÅ/Mí¾Ñ»%}Y°ÏDa4YCÑî¾)©\u001eäÝ£[F¸£¼\u000f\nèÛïB8°þô¦ÀáîOqf0\u0013M£Mq©FË\\\u0012ïJÌ+wcx[¤ÿ\u0012C°\u0017\u001e\tÎ\u001aÆð\u0010¾´c+=¦(\u0018\bo\tpAOô-\u0004sOxßo¼ªáÔu Ó[»Ï-Fw\rF¼å[Z\rB<\u001dQ#¼W[J<×ÏûÊÆ`V­tGºÎÕÕc¨O9\u0011\u0010C¢¢TîF+äÍý<\u001b\u000f|\u0000bàóAmé1ªV/)W²~}«ÊÔÉì¹J±S£Á¤ü4[w\u000fya=Ý¬s\fÚ3ÿË\tîícfÐ¯kR)\u001ezój¥ÜÌ¶I¨\\ÊÎÈ\u0019¬ #K«s\u0003BÒé\u0001yàí/®ªqFÒ\föÃ¸8\u0012R?ÜØÈ¹øZKÃôõ¬\u001aþ¦ïÿÍN(êfÍð\u0016k3ÄotõAÿ\u00078 \u0001jõ}\u0002`\u0000PWÀ-\u001c]AÖ\u001bó\u001byº äláúÎ\\\bûã´\u0016ÂÄcaËÌ.\u0015Q\\0]Æ£yn?åÂî «qRN§ß+u\u000eRý=q­Ï5¨PL)\u001aÕkg\u001aá©o\u0013rßAº\u0004ÍiKà\u0002f\u001beÉ -cvmd³éïò,­\u001a¯ïÔ0G\u000bï\u001f<wlAËÿC>?V\u0000ÕÆíìÖhVû\u000b]ü©\u0017è]aà+î¿é­ë~o{\bÁ<´Ë(M¾\u001b\u0010ÿ\u000e¾&ô}ÚZMtÛyæ|\u0016-A\u001bÆìÈ,\u000f*\u0015£Ð*\t#[w®ps:\u0004õ\t\\ ©Çá¬AøQÇ¨2\u000bðîÚI´h\u000e\u0005'`ôfîìU¬§Ë5©òÉëÝù6e(í\u001d½Ûç¸í¸ÕæZj\u0001¤Äe\u0018ÜÎ\u0017'\u0000mÄð\u0017<ß$mò\f\u0019­öCÏþ\u0013¾\u0013|¤Æ'5vÆ}PÍ\u0005zè´\u001fT\u001b/a(ºz\u00003#!ð\u001cóÔà\tÐ4l9òþs?è\u0000.\u0000\u0015´yvãÖ>+ÄL¼K®\u0005¿¬¬w\u001dkQ5\u00191LxËôRæ ,âo3î \u0016\u0000w\u0002è=&åSZÂø»c\u000f4s\u0003¹CÞOÒ,©5)M/\u0010c\u0018~<Õîÿ\u0015@\u0018z´û.²JÉËÐdiüBê,âüFÿúí\fÏ¿²ûÂ'Lc\nÒé¤³Ï\u001fà^\\Ä>]¿O,ì\u0018×óÿ«è/cs±\u001eñ{Å\u0000C¤\u001dßm°a¢\nÇ-\u0002®ö+§¾ÿéÑ{UP¦\u000eP th À®6Ëþ ¤+A\u00103ñ(\"vxØúøÙ\u0005­\"µH\u0017â*¢\u001f\u0010Pô\u0019\tniwsté.5-l¡WÒ½Pï\u0017âBª\u0003àá~Ùó\u0005ÖsH\u001e½C{âA#°ÿäaÁG\u000esSË\\½<¢x\u001aö GtytjÎM¿ÕZ¶Ìó¯\u0003EÉÚù¼{J°0ü÷¬®\u00190¸±UÖ¹-½7uò¸aÍß¶7Äô\\ iz\u0001«\u001a}\u0001ý·)Õç9ðhn\u0002 +Uu6Ë\u0011y>^\u001d¾8»Ûh6­¼`Î\u0015>¶Ë´^D\u001fÿ#Á\u001c·i*@\bó§´x9Æ\u0014jOo`\u0014¡\u001fúÞ»>Þ[6Zdëä\u0010\u001cV?\u001d¯¬¡ TÝ[Û©vR-\u0004h\u001a¬\u001cÏ½$Kö¹÷m@£7îS}õ\u001a\u0014zÐ£\u0004»FFþ7°èÃR·¢\u0019Jô²Ç\f³X\\èÛ\u0007É\u0003\u0010\u001b_ÍVA\u0014íM\u001d=Ì°[»Á\u0000<Sr\u0012©¦×\bØv\u000b®¼øÜ¾¡WÌ\u0018uXÿØØ°¾K+9ü|CÔ×)þ:ãéË\u001bø=LétøÏ0½öùvX\u0016k\b}¥°\u0000¥²ö4È\u0000\n\u0016\u0016&(a×À\u00020m\u0000\u0000\u0000\u0000"
-          },
-          "headers": {
-            "x-url": "/s/files/1/0987/6688/files/oprah_small.png?v=1543443771",
-            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
-            "x-content-type-options": "nosniff",
-            "x-image": "generated",
-            "x-cdn": "Fastly, http2",
-            "x-dc": "gke",
-            "edge-cache-tag": "cdn-shopify-com-s-files-1-0987-6688-files-oprah-png",
-            "status": "200",
-            "x-cache": "HIT, HIT",
-            "x-xss-protection": "1; mode=block",
-            "x-request-id": "54fa7170c5fe4b02865a78562be5eb517e03bb09b38eb769de70efff4fd09271",
-            "x-served-by": "cache-jfk8134-JFK, cache-yyz4542-YYZ",
-            "server": "cache-yyz4542-YYZ",
-            "x-timer": "S1581090007.145092,VS0,VE0",
-            "vary": "Accept",
-            "content-type": "image/webp",
-            "access-control-allow-origin": "*",
-            "cache-control": "public, max-age=31557600",
-            "accept-ranges": "bytes",
-            "timing-allow-origin": "*",
-            "link": "<https://cdn.shopify.com/s/files/1/0987/6688/files/oprah_small.png>; rel=\"canonical\"",
-            "x-cache-hits": "1, 1"
-          }
-        }
-      }
-    ]
-  },
-  "version": 1
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fc213ec46b5e858c744de01c66d3e7fabbaf49f73dc4b9bfaa88267262742205
+size 7512
