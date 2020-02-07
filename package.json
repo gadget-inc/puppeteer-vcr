@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "description": "Record requests and replay them for stable puppeteer testing",
   "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "repository": "https://github.com/superpro-inc/puppeteer-vcr",
   "author": "Harry Brundage",
   "license": "MIT",
   "private": false,
   "scripts": {
+    "release": "yarn run build && yarn publish --access public",
     "build": "tsc",
     "watch": "tsc --watch",
     "lint": "tsc --noEmit && prettier --check \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx src test",

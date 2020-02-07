@@ -39,8 +39,11 @@ export class VCR {
     await page.setCacheEnabled(false);
 
     const cassette = new Cassette(this.cassettePath(namespace));
-    const handler = new PageEventHandler(this, page, cassette);
+    const mode = await this.modeForNamespace(namespace);
+
+    const handler = new PageEventHandler(this, mode, page, cassette);
     await handler.register();
+
     return handler;
   }
 
@@ -68,5 +71,22 @@ export class VCR {
 
   cassettePath(namespace: string) {
     return path.join(this.options.cassetteRoot, sanitize(namespace.toLowerCase().replace(/\s/g, "_")));
+  }
+
+  private async modeForNamespace(namespace: string) {
+    if (this.options.mode == "auto") {
+      if (process.env.CI) {
+        // TODO: get to the point where we error upon unrecognized requests and can make this replay-only-throw
+        return "replay-only";
+      } else {
+        if (await this.cassetteExists(namespace)) {
+          return "replay-only";
+        } else {
+          return "record-only";
+        }
+      }
+    } else {
+      return this.options.mode;
+    }
   }
 }

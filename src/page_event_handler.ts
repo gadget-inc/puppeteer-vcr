@@ -5,6 +5,7 @@ import { Matcher, MatchKey } from "./matcher";
 import { assert, smallRequestOutput, setCookiesHeader, applyCacheConfig, truncate, bodyDescriptorToBuffer, sleep } from "./utils";
 import { RequestEventManager } from "./request_event_manager";
 
+export type ConcreteMode = "replay-only-throw" | "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough";
 export class PageEventHandler {
   recordUnmatchedRequests = false;
   replayMatchedRequests = false;
@@ -12,22 +13,10 @@ export class PageEventHandler {
   throwOnUnmatchedRequests = false;
   matcher: Matcher;
   requestEvents: RequestEventManager;
-  mode: "replay-only-throw" | "replay-only" | "record-only" | "record-additive" | "replay-passthrough" | "passthrough";
 
-  constructor(readonly vcr: VCR, readonly page: Page, readonly cassette: Cassette) {
+  constructor(readonly vcr: VCR, readonly mode: ConcreteMode, readonly page: Page, readonly cassette: Cassette) {
     this.matcher = new Matcher(this.vcr);
     this.requestEvents = new RequestEventManager(this.page);
-
-    if (this.vcr.options.mode == "auto") {
-      if (process.env.CI) {
-        // TODO: get to the point where we error upon unrecognized requests and can make this replay-only-throw
-        this.mode = "replay-only";
-      } else {
-        this.mode = "record-additive";
-      }
-    } else {
-      this.mode = this.vcr.options.mode;
-    }
 
     this.recordUnmatchedRequests = ["record-only", "record-additive"].includes(this.mode);
     this.replayMatchedRequests = ["replay-only", "replay-only-throw", "record-additive", "replay-passthrough"].includes(this.mode);
