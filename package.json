@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-vcr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Record requests and replay them for stable puppeteer testing",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
