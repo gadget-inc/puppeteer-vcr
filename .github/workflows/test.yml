@@ -1,0 +1,19 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gadget-inc/puppeteer-action@master
+        with:
+          args: yarn install --frozen-lockfile
+      - name: test
+        uses: gadget-inc/puppeteer-action@master
+        with:
+          args: sudo -u pptruser -E -H yarn run jest
+        env:
+          CI: "true"

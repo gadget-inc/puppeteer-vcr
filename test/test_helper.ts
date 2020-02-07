@@ -1,12 +1,19 @@
 import path from "path";
 import tmp from "tmp";
-import { Browser, launch, Page } from "puppeteer";
+import { Browser, launch, Page, LaunchOptions } from "puppeteer";
 import { VCR, VCROptions } from "../src";
 
 let browser: Browser | null = null;
 
 export const getBrowser = async () => {
-  browser = await launch({ headless: false });
+  const options: LaunchOptions = { headless: false };
+  if (process.env.CI) {
+    console.log("Using CI provided chrome");
+    options.headless = true;
+    options.executablePath = "/usr/bin/google-chrome-unstable";
+    options.args = ["--no-sandbox", "--disable-setuid-sandbox"];
+  }
+  browser = await launch(options);
   return browser;
 };
 
