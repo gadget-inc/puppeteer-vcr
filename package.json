@@ -4,6 +4,10 @@
   "description": "Record requests and replay them for stable puppeteer testing",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/src/**/*.*",
+    "README.md"
+  ],
   "repository": "https://github.com/superpro-inc/puppeteer-vcr",
   "author": "Harry Brundage",
   "license": "MIT",
