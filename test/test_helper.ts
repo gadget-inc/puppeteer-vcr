@@ -6,6 +6,10 @@ import { VCR, VCROptions } from "../src";
 let browser: Browser | null = null;
 
 export const getBrowser = async () => {
+  if (browser) {
+    return browser;
+  }
+
   const options: LaunchOptions = { headless: false };
   if (process.env.CI) {
     console.log("Using CI provided chrome");
@@ -52,6 +56,7 @@ export const assertRecordReplay = async (options: Partial<VCROptions>, interacti
 
   await interaction(recordPage);
   await recorder.drainTasks();
+  await recordPage.close();
   await recordContext.close();
 
   const replayContext = await getBrowserContext();
@@ -62,6 +67,7 @@ export const assertRecordReplay = async (options: Partial<VCROptions>, interacti
 
   await interaction(replayPage);
   await replayer.drainTasks();
+  await replayPage.close();
   await replayContext.close();
 };
 
@@ -79,6 +85,7 @@ export const assertReplay = async (options: Partial<VCROptions>, interaction: (p
 
     await interaction(recordPage);
     await recorder.drainTasks();
+    await recordPage.close();
     await recordContext.close();
   }
 
@@ -89,5 +96,6 @@ export const assertReplay = async (options: Partial<VCROptions>, interaction: (p
 
   await interaction(replayPage);
   await replayer.drainTasks();
+  await replayPage.close();
   await replayContext.close();
 };

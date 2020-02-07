@@ -1,11 +1,8 @@
 name: Test
-
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: gadget-inc/puppeteer-action@master
@@ -17,3 +14,13 @@ jobs:
           args: sudo -u pptruser -E -H yarn run jest
         env:
           CI: "true"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 13.7.0
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint

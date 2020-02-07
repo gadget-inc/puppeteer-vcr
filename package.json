@@ -13,7 +13,8 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "lint": "tsc --noEmit && prettier --check \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx src test",
-    "lintfix": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx --fix src test"
+    "lintfix": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" && eslint --ext js,ts,tsx --fix src test",
+    "texec": "ts-node --files"
   },
   "dependencies": {
     "@types/await-timeout": "^0.3.1",
@@ -47,6 +48,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.1",
     "ts-jest": "^25.2.0",
+    "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
   }
 }
