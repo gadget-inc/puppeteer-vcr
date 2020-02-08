@@ -30,7 +30,13 @@ afterEach(async () => {
     await Promise.all(
       browser.browserContexts().map(async context => {
         if (context.isIncognito()) {
-          await context.close();
+          try {
+            await context.close();
+          } catch (error) {
+            if (!error.message.match(/Target closed\./)) {
+              throw error;
+            }
+          }
         }
       })
     );

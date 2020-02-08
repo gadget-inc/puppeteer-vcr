@@ -1,6 +1,5 @@
 import { assertReplay } from "./test_helper";
 import { MatchKey } from "../src";
-import { sleep } from "../src/utils";
 
 describe("puppeteer-vcr integration against homesick.com", () => {
   it("should replay a recorded visit", async () => {
