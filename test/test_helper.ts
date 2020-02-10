@@ -15,7 +15,7 @@ export const getBrowser = async () => {
     console.log("Using CI provided chrome");
     options.headless = true;
     options.executablePath = "/usr/bin/google-chrome-unstable";
-    options.args = ["--no-sandbox", "--disable-setuid-sandbox"];
+    options.args = ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"];
   }
   browser = await launch(options);
   return browser;
